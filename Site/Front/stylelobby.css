@@ -1,0 +1,587 @@
+:root {
+    --gold: #FFD700;
+    --purple: #6A0DAD;
+    --purple2: #8B2BE2;
+    --dark: #0D0014;
+    --dark2: #1A0030;
+    --card-bg: #1A0030;
+    --text: #F0E6FF;
+    --green: #3DFF7A;
+    --red: #FF3B6B;
+    --blue: #4B8CFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: #000;
+    color: var(--text);
+    min-height: 100vh;
+}
+
+header {
+    background: var(--dark2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 72px;
+    border-bottom: 2px solid var(--purple2);
+    box-shadow: 0 4px 24px #6A0DAD44;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 32px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--gold);
+}
+
+.logo-sub {
+    font-size: 10px;
+    color: #c9aaff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.header-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    background: var(--purple);
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.icon-btn:hover {
+    transform: scale(1.15);
+}
+
+.lobby-wrapper {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+}
+
+/* LEFT COL */
+.sala-code-card {
+    background: var(--card-bg);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 32px #FFD70022;
+}
+
+.sala-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #9977cc;
+    margin-bottom: 12px;
+}
+
+.sala-code {
+    font-family: 'Orbitron', monospace;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 10px;
+    margin-bottom: 16px;
+    text-shadow: 0 0 20px #FFD70088;
+}
+
+.copy-btn {
+    padding: 9px 22px;
+    background: transparent;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    color: var(--gold);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+}
+
+.copy-btn:hover {
+    background: #FFD70022;
+}
+
+.sala-meta-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meta-chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #1a0030;
+    border: 1px solid var(--purple2);
+    color: #c9aaff;
+    font-family: 'Orbitron', monospace;
+}
+
+.diff-easy {
+    background: #003a00;
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.config-card {
+    background: var(--card-bg);
+    border: 1px solid var(--purple);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.config-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--purple2);
+    margin-bottom: 14px;
+}
+
+.config-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid #1a003066;
+}
+
+.config-row:last-child {
+    border-bottom: none;
+}
+
+.cfg-label {
+    font-size: 13px;
+    color: #9977cc;
+}
+
+.cfg-val {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.mode-speed {
+    color: var(--blue);
+}
+
+.host-name {
+    color: var(--gold);
+}
+
+.countdown-card {
+    background: #0d0020;
+    border: 1px solid #2a004466;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cd-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    color: #9977cc;
+    margin-bottom: 6px;
+}
+
+.cd-sub {
+    font-size: 13px;
+    color: #5a3080;
+}
+
+.pulse-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--purple2);
+    margin: 16px auto 0;
+    animation: pulseRing 1.5s ease infinite;
+}
+
+@keyframes pulseRing {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.start-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--gold);
+    border: none;
+    border-radius: 14px;
+    color: #1a0030;
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    letter-spacing: 3px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px #FFD70044;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px #FFD70066;
+}
+
+.start-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* RIGHT COL */
+.players-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.players-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.players-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.players-count {
+    font-size: 13px;
+    color: #9977cc;
+}
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.player-card {
+    background: var(--card-bg);
+    border: 2px solid #2a004466;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.player-card.ready {
+    border-color: #3DFF7A44;
+    background: #001a0a;
+}
+
+.player-card.empty {
+    border: 2px dashed #2a004466;
+    opacity: 0.4;
+}
+
+.host-crown {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+}
+
+.ready-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 9px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: #2a004466;
+    color: #5a3080;
+}
+
+.ready-badge.is-ready {
+    background: #003a00;
+    color: var(--green);
+}
+
+.p-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 3px solid var(--purple);
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--text);
+    background: #0d0020;
+}
+
+.empty-av {
+    border-color: #2a004466;
+    color: #2a004466;
+    font-size: 22px;
+}
+
+.p-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.empty-name {
+    color: #2a004466;
+    font-size: 12px;
+}
+
+.p-elo {
+    font-size: 11px;
+    color: #9977cc;
+    margin-bottom: 8px;
+}
+
+.p-info-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.p-lvl {
+    padding: 3px 8px;
+    background: #1a0030;
+    border-radius: 6px;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    color: var(--gold);
+}
+
+.p-lang {
+    padding: 3px 8px;
+    background: #001a30;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    font-size: 10px;
+    color: var(--blue);
+}
+
+.chat-box {
+    background: var(--card-bg);
+    border: 1px solid var(--purple);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.chat-title {
+    padding: 12px 16px;
+    background: #0d0020;
+    border-bottom: 1px solid #2a004466;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    color: var(--purple2);
+    letter-spacing: 2px;
+}
+
+.chat-messages {
+    height: 160px;
+    overflow-y: auto;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 3px;
+}
+
+.chat-msg {
+    font-size: 13px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.chat-user {
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.chat-text {
+    color: #c9aaff;
+}
+
+.chat-msg.system {
+    color: #5a3080;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 10px 14px;
+    border-top: 1px solid #2a004466;
+}
+
+.chat-input {
+    flex: 1;
+    background: #0d0020;
+    border: 1px solid #2a004466;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text);
+    font-size: 13px;
+    outline: none;
+}
+
+.chat-input:focus {
+    border-color: var(--purple2);
+}
+
+.chat-send {
+    width: 36px;
+    height: 36px;
+    background: var(--purple);
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* COUNTDOWN OVERLAY */
+.countdown-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.oculto {
+    display: none;
+}
+
+.cd-big {
+    font-family: 'Orbitron', monospace;
+    font-size: 200px;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 60px #FFD700;
+    animation: cdPop 0.8s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+@keyframes cdPop {
+    from {
+        transform: scale(2);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cd-msg {
+    font-family: 'Orbitron', monospace;
+    font-size: 20px;
+    color: #c9aaff;
+    letter-spacing: 4px;
+    margin-top: 16px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #1a0030;
+    border: 2px solid var(--gold);
+    border-radius: 14px;
+    padding: 14px 28px;
+    font-family: 'Orbitron', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    transition: transform 0.4s cubic-bezier(.34, 1.56, .64, 1);
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}

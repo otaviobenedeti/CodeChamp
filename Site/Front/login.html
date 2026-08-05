@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChamp - Login e Cadastro</title>
+    <link rel="stylesheet" href="stylelogin.css">
+</head>
+
+<body>
+    
+
+    <main class="container">
+        <section class="auth-card">
+            <header class="logo-container">
+                <img src="logotrofeu.png" alt="CodeChampLogo" class="logo-img">
+                <h1 class="brand-name">Code<span>Champ</span></h1>
+                <p class="subtitle">Aprenda Programação com Desafios</p>
+            </header>
+
+            <form>
+                <input type="email" placeholder="email@dominio.com" required>
+                <div style="position: relative;">
+            <input type="password" id="senha" placeholder="Senha" required
+                    style="width: 100%; padding-right: 40px;">
+
+                <span onclick="toggleSenha()"
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    👁️‍🗨️
+                </span>
+            </div>
+                <button class="btn-primary"><a href="home.html">Entrar</a></button>
+            </form>
+
+            <a href="cadastro.html" class="switch-link">Não tem conta? Cadastre-se</a>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

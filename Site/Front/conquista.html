@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeChamp</title>
+  <link rel="stylesheet" href="styleconquista.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+      <div class="logo-icon"><img src="logotrofeu.png" alt="logo"></div>
+      <div>
+        <div class="logo-text">CodeChamp</div>
+        <div class="logo-sub">Aprenda Programação com Desafios</div>
+      </div>
+    </div>
+    <div class="header-icons">
+          <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
+          <button class="icon-btn"><a href="loja.html">🛒</a></button>
+          <button class="icon-btn"><a href="conquista.html">🏅</a></button>
+          <button class="icon-btn"><a href="ranking.html">🏆</a></button>
+          <!-- <button class="icon-btn"><a href="">⚙️</a></button> -->
+          <button class="icon-btn"><a href="perfil.html">👤</a></button>
+            <button class="icon-btn"><a href="home.html">🔙</a></button>
+        </div>
+  </header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-title">🏅 CONQUISTAS & MISSÕES</div>
+    <div class="tabs">
+      <button class="tab active" onclick="setTab('missoes',this)">📋 Missões Diárias</button>
+      <button class="tab" onclick="setTab('conquistas',this)">🏅 Conquistas</button>
+      <button class="tab" onclick="setTab('desafios',this)">🎯 Desafios Semanais</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- LEFT CONTENT -->
+  <div class="left-col">
+
+    <!-- MISSÕES -->
+    <div id="tab-missoes">
+      <div class="missions-card">
+        <div class="daily-header">
+          <div class="sec-title" style="margin-bottom:0">📋 MISSÕES DO DIA</div>
+          <div class="daily-reset">🔄 Reset em <span id="resetTimer">08:34:12</span></div>
+        </div>
+        <div id="missionList"></div>
+      </div>
+    </div>
+
+    <!-- CONQUISTAS -->
+    <div id="tab-conquistas" class="oculto">
+      <div class="achievements-card">
+        <div class="sec-title">🏅 TODAS AS CONQUISTAS</div>
+        <div class="ach-grid" id="achGrid"></div>
+      </div>
+    </div>
+
+    <!-- DESAFIOS SEMANAIS -->
+    <div id="tab-desafios" class="oculto">
+      <div class="missions-card">
+        <div class="daily-header">
+          <div class="sec-title" style="margin-bottom:0">🎯 DESAFIOS DA SEMANA</div>
+          <div class="daily-reset">🔄 Reset em <span>3 dias</span></div>
+        </div>
+        <div id="weeklyList"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar-col">
+
+    <!-- STREAK -->
+    <div class="streak-card">
+      <div class="streak-fire">🔥</div>
+      <div class="streak-num">30</div>
+      <div class="streak-label">dias de sequência!</div>
+      <div class="streak-days">
+        <div class="day-dot done">S</div>
+        <div class="day-dot done">T</div>
+        <div class="day-dot today">Q</div>
+        <div class="day-dot done">Q</div>
+        <div class="day-dot done">S</div>
+        <div class="day-dot done">S</div>
+        <div class="day-dot done">D</div>
+      </div>
+    </div>
+
+    <!-- LEVEL -->
+    <div class="level-card">
+      <div class="sec-title">📈 NÍVEL ATUAL</div>
+      <div class="level-header">
+        <div>
+          <div class="level-num">47</div>
+          <div class="level-name">🧠 Expert Coder</div>
+        </div>
+        <div class="next-level">Próximo nível<br><span>Nível 48</span></div>
+      </div>
+      <div class="xp-track"><div class="xp-fill" style="width:62%"></div></div>
+      <div class="xp-labels"><span>6.200 XP</span><span>10.000 XP</span></div>
+    </div>
+
+    <!-- STATS MINI -->
+    <div class="stats-mini">
+      <div class="sec-title">📊 RESUMO</div>
+      <div class="mini-row"><span class="mini-label">🏅 Conquistas</span><span class="mini-val">18/32</span></div>
+      <div class="mini-row"><span class="mini-label">📋 Missões feitas</span><span class="mini-val">142</span></div>
+      <div class="mini-row"><span class="mini-label">🪙 Coins ganhos</span><span class="mini-val">12.850</span></div>
+      <div class="mini-row"><span class="mini-label">⭐ XP Total</span><span class="mini-val">48.320</span></div>
+      <div class="mini-row"><span class="mini-label">🔥 Maior streak</span><span class="mini-val">30 dias</span></div>
+    </div>
+
+  </div>
+</main>
+
+<div class="toast" id="toast">🪙 Recompensa coletada!</div>
+
+<style>.oculto{display:none}</style>
+
+<script>
+  const missions = [
+    { icon:'⚡', name:'Complete 3 desafios Speed', cur:3, max:3, done:true,  reward:'🪙 +150' },
+    { icon:'🧠', name:'Assista 2 aulas completas',  cur:2, max:2, done:true,  reward:'⭐ +80 XP' },
+    { icon:'⚔️', name:'Vença 1 batalha 1v1',        cur:0, max:1, done:false, reward:'🪙 +200' },
+    { icon:'📝', name:'Resolve 5 problemas de código', cur:3, max:5, done:false, reward:'⭐ +120 XP' },
+    { icon:'🔥', name:'Mantenha sua streak hoje',   cur:1, max:1, done:true,  reward:'🪙 +50' },
+  ];
+
+  const weekly = [
+    { icon:'🏆', name:'Chegue ao Top 10 do ranking semanal', cur:9, max:10, done:false, reward:'🪙 +500' },
+    { icon:'💻', name:'Complete 1 desafio Maratona',          cur:0,  max:1,  done:false, reward:'⭐ +300 XP' },
+    { icon:'🎓', name:'Assista 5 aulas diferentes',            cur:3,  max:5,  done:false, reward:'🪙 +250' },
+    { icon:'⚔️', name:'Vença 5 batalhas 1v1',                  cur:5,  max:5,  done:true,  reward:'🏅 Conquista' },
+  ];
+
+  const achievements = [
+    { emoji:'🥇', name:'Primeiro Lugar', desc:'Chegue ao #1 do ranking', xp:500, unlocked:true, rare:false },
+    { emoji:'⚡', name:'Speed Demon',    desc:'Complete 50 desafios Speed', xp:300, unlocked:true, rare:false },
+    { emoji:'🔥', name:'Streak 30',      desc:'30 dias consecutivos', xp:400, unlocked:true, rare:true },
+    { emoji:'🧠', name:'Maratonista',    desc:'Complete 10 Maratonas', xp:350, unlocked:true, rare:false },
+    { emoji:'⚔️', name:'Duelista',       desc:'Vença 50 batalhas 1v1', xp:400, unlocked:true, rare:true },
+    { emoji:'🎓', name:'Estudante',      desc:'Assista 20 aulas', xp:200, unlocked:true, rare:false },
+    { emoji:'💎', name:'Diamante',       desc:'Alcance o nível 50', xp:1000, unlocked:false, rare:true },
+    { emoji:'🌍', name:'Global',         desc:'Jogue com alguém de 10 países', xp:300, unlocked:false, rare:false },
+    { emoji:'🤖', name:'Automator',      desc:'Complete 5 desafios sem errar', xp:350, unlocked:false, rare:true },
+    { emoji:'🐍', name:'Pythonista',     desc:'Complete 30 desafios em Python', xp:300, unlocked:false, rare:false },
+    { emoji:'🚀', name:'Speedrunner',    desc:'Complete um desafio em menos de 1 min', xp:250, unlocked:false, rare:false },
+    { emoji:'👑', name:'Rei do Code',    desc:'1000 desafios resolvidos', xp:2000, unlocked:false, rare:true },
+  ];
+
+  function renderMissions(list, container) {
+    document.getElementById(container).innerHTML = list.map(m => {
+      const pct = Math.min(100, Math.round((m.cur / m.max) * 100));
+      return `
+      <div class="mission-item ${m.done ? 'done' : ''}">
+        <div class="mission-icon">${m.icon}</div>
+        <div class="mission-body">
+          <div class="mission-name">${m.name}</div>
+          <div class="mission-progress">
+            <div class="m-track"><div class="m-fill" style="width:${pct}%"></div></div>
+            <span class="m-pct">${m.cur}/${m.max}</span>
+          </div>
+        </div>
+        <span class="mission-reward">${m.reward}</span>
+        ${m.done
+          ? `<button class="claim-btn" onclick="claim(this)">Coletar</button>`
+          : `<span class="done-check" style="color:#3a2060;font-size:16px">🔒</span>`}
+      </div>`;
+    }).join('');
+  }
+
+  function renderAch() {
+    document.getElementById('achGrid').innerHTML = achievements.map(a => `
+      <div class="ach-item ${a.unlocked ? 'unlocked' : 'locked'} ${a.rare ? 'rare' : ''}">
+        ${a.unlocked ? '<div class="ach-shine"></div>' : ''}
+        <span class="ach-emoji">${a.unlocked ? a.emoji : '🔒'}</span>
+        <div class="ach-name">${a.name}</div>
+        <div class="ach-desc">${a.desc}</div>
+        <div class="ach-xp">+${a.xp} XP</div>
+      </div>`).join('');
+  }
+
+  function claim(btn) {
+    btn.textContent = '✅';
+    btn.style.background = 'var(--green)';
+    btn.disabled = true;
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  function setTab(name, el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    ['missoes','conquistas','desafios'].forEach(t => {
+      document.getElementById('tab-'+t).classList.toggle('oculto', t !== name);
+    });
+  }
+
+  // Countdown reset
+  let rs = 8*3600 + 34*60 + 12;
+  setInterval(() => {
+    rs--; if (rs < 0) rs = 86400;
+    const h = String(Math.floor(rs/3600)).padStart(2,'0');
+    const m = String(Math.floor((rs%3600)/60)).padStart(2,'0');
+    const s = String(rs%60).padStart(2,'0');
+    document.getElementById('resetTimer').textContent = `${h}:${m}:${s}`;
+  }, 1000);
+
+  renderMissions(missions, 'missionList');
+  renderMissions(weekly, 'weeklyList');
+  renderAch();
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodeChamp</title>
+    <link rel="stylesheet" href="styledesafio.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon"><img src="logotrofeu.png" alt="logo"></div>
+            <div>
+                <div class="logo-text">CodeChamp</div>
+                <div class="logo-sub">Aprenda Programação com Desafios</div>
+            </div>
+        </div>
+        <div class="header-icons">
+            <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
+            <button class="icon-btn"><a href="loja.html">🛒</a></button>
+            <button class="icon-btn"><a href="conquista.html">🏅</a></button>
+            <button class="icon-btn"><a href="ranking.html">🏆</a></button>
+            <!-- <button class="icon-btn"><a href="">⚙️</a></button> -->
+            <button class="icon-btn"><a href="perfil.html">👤</a></button>
+            <button class="icon-btn"><a href="home.html">🔙</a></button>
+        </div>
+    </header>
+
+    <div class="challenge-bar">
+        <span class="ch-title">🧩 Soma de Dois Números</span>
+        <span class="ch-tag diff-easy">FÁCIL</span>
+        <span class="ch-tag" style="background:#001a3a;color:var(--blue);border:1px solid var(--blue);">⚡ SPEED</span>
+        <span class="xp-chip">⭐ +120 XP</span>
+        <div class="timer-chip" id="timerDisplay">⏱️ 10:00</div>
+    </div>
+
+    <div class="editor-body">
+
+        <!-- PROBLEM PANEL -->
+        <div class="problem-panel">
+            <div class="panel-tabs">
+                <button class="p-tab active" onclick="switchTab('desc',this)">📄 Descrição</button>
+                <button class="p-tab" onclick="switchTab('dica',this)">💡 Dica</button>
+                <button class="p-tab" onclick="switchTab('rank',this)">🏅 Ranking</button>
+            </div>
+
+            <div class="panel-content" id="tab-desc">
+                <div class="problem-title">Soma de Dois Números</div>
+                <p class="problem-desc">
+                    Dada uma lista de números inteiros <code
+                        style="color:var(--green);font-family:'Fira Code',monospace">nums</code> e um valor alvo <code
+                        style="color:var(--green);font-family:'Fira Code',monospace">target</code>, retorne os
+                    <strong>índices</strong> dos dois números que somam ao valor alvo.<br><br>
+                    Assuma que existe exatamente uma solução e não pode usar o mesmo elemento duas vezes.
+                </p>
+                <div class="section-label">Exemplos</div>
+                <div class="example-box">
+                    <p>Entrada:</p>
+                    <code>nums = [2, 7, 11, 15], target = 9</code><br>
+                    <p style="margin-top:8px">Saída:</p>
+                    <code>[0, 1]</code>
+                </div>
+                <div class="example-box">
+                    <p>Entrada:</p>
+                    <code>nums = [3, 2, 4], target = 6</code><br>
+                    <p style="margin-top:8px">Saída:</p>
+                    <code>[1, 2]</code>
+                </div>
+                <div class="section-label" style="margin-top:16px">Restrições</div>
+                <ul class="constraint-list">
+                    <li>2 ≤ nums.length ≤ 10⁴</li>
+                    <li>-10⁹ ≤ nums[i] ≤ 10⁹</li>
+                    <li>Apenas uma solução válida existe</li>
+                    <li>Complexidade esperada: O(n)</li>
+                </ul>
+            </div>
+
+            <div class="panel-content oculto" id="tab-dica">
+                <div class="section-label">💡 Dica 1</div>
+                <p class="problem-desc">Use um objeto (hash map) para guardar os valores já visitados e seus índices.
+                </p>
+                <div class="section-label" style="margin-top:16px">💡 Dica 2</div>
+                <p class="problem-desc">Para cada número, calcule o complemento <code
+                        style="color:var(--green);font-family:'Fira Code',monospace">target - nums[i]</code> e verifique
+                    se ele está no hash map.</p>
+            </div>
+
+            <div class="panel-content oculto" id="tab-rank">
+                <div class="section-label">🏅 Melhores Tempos</div>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;">
+                    <div
+                        style="display:flex;align-items:center;gap:12px;background:#0d0020;padding:10px 14px;border-radius:10px;">
+                        <span style="color:var(--gold);font-family:'Orbitron',monospace;font-size:13px">🥇 1º</span>
+                        <span style="font-size:14px;font-weight:600">miguel_gerbi</span>
+                        <span style="margin-left:auto;color:var(--green);font-family:'Fira Code',monospace">01:24</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:12px;background:#0d0020;padding:10px 14px;border-radius:10px;">
+                        <span style="color:#C0C0C0;font-family:'Orbitron',monospace;font-size:13px">🥈 2º</span>
+                        <span style="font-size:14px;font-weight:600">otavio_benedeti</span>
+                        <span style="margin-left:auto;color:var(--green);font-family:'Fira Code',monospace">02:08</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:12px;background:#0d0020;padding:10px 14px;border-radius:10px;">
+                        <span style="color:#CD7F32;font-family:'Orbitron',monospace;font-size:13px">🥉 3º</span>
+                        <span style="font-size:14px;font-weight:600">italo_mozer</span>
+                        <span style="margin-left:auto;color:var(--green);font-family:'Fira Code',monospace">03:45</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CODE EDITOR -->
+        <div class="code-panel">
+            <div class="editor-toolbar">
+                <select class="lang-select" id="langSelect" onchange="setLanguage()">
+                    <option value="js">JavaScript</option>
+                    <option value="py">Python</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                </select>
+                <button class="toolbar-btn" onclick="resetCode()">🔄 Resetar</button>
+                <button class="toolbar-btn" onclick="formatCode()">✨ Formatar</button>
+                <button class="toolbar-btn run-btn" onclick="runCode()">▶ Executar</button>
+                <button class="toolbar-btn submit-btn" onclick="submitCode()">🚀 Submeter</button>
+            </div>
+
+            <div class="code-editor-wrap">
+                <div class="line-numbers" id="lineNums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+                <textarea class="code-textarea" id="codeArea" spellcheck="false" oninput="updateLines()">function somarDois(nums, target) {
+  const mapa = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const complemento = target - nums[i];
+
+    if (mapa[complemento] !== undefined) {
+      return [mapa[complemento], i];
+    }
+
+    mapa[nums[i]] = i;
+  }
+}</textarea>
+            </div>
+
+            <div class="output-panel">
+                <div class="output-header">
+                    <div class="status-dot" id="statusDot"></div>
+                    <span class="output-label">OUTPUT</span>
+                    <span id="statusText" style="font-size:12px;color:#9977cc;margin-left:4px"></span>
+                </div>
+                <div class="output-content" id="outputContent">
+                    <div class="out-line info">// Pressione ▶ Executar para rodar seu código</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS OVERLAY -->
+    <div class="success-overlay oculto" id="successOverlay">
+        <div class="success-box">
+            <div class="success-emoji">🎉</div>
+            <div class="success-title">DESAFIO COMPLETO!</div>
+            <div class="success-sub">Todos os testes passaram com sucesso!</div>
+            <div class="xp-gained">+120 XP</div>
+            <div class="success-btns">
+                <button class="s-btn home" onclick="location.href='home.html'">🏠 Início</button>
+                <button class="s-btn next" onclick="document.getElementById('successOverlay').classList.add('oculto')"><a href="pospartida.html">
+                    Próximo</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const templates = {
+            js: `function somarDois(nums, target) {\n  const mapa = {};\n\n  for (let i = 0; i < nums.length; i++) {\n    const complemento = target - nums[i];\n\n    if (mapa[complemento] !== undefined) {\n      return [mapa[complemento], i];\n    }\n\n    mapa[nums[i]] = i;\n  }\n}`,
+            py: `def somar_dois(nums, target):\n    mapa = {}\n    for i, num in enumerate(nums):\n        complemento = target - num\n        if complemento in mapa:\n            return [mapa[complemento], i]\n        mapa[num] = i`,
+            cpp: `#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nvector<int> somarDois(vector<int>& nums, int target) {\n    unordered_map<int,int> mapa;\n    for (int i = 0; i < nums.size(); i++) {\n        int comp = target - nums[i];\n        if (mapa.count(comp)) return {mapa[comp], i};\n        mapa[nums[i]] = i;\n    }\n    return {};\n}`,
+            java: `import java.util.*;\n\nclass Solucao {\n    public int[] somarDois(int[] nums, int target) {\n        Map<Integer,Integer> mapa = new HashMap<>();\n        for (int i = 0; i < nums.length; i++) {\n            int comp = target - nums[i];\n            if (mapa.containsKey(comp)) return new int[]{mapa.get(comp), i};\n            mapa.put(nums[i], i);\n        }\n        return new int[]{};\n    }\n}`
+        };
+
+        function setLanguage() {
+            document.getElementById('codeArea').value = templates[document.getElementById('langSelect').value];
+            updateLines();
+        }
+
+        function updateLines() {
+            const lines = document.getElementById('codeArea').value.split('\n').length;
+            document.getElementById('lineNums').innerHTML = Array.from({ length: lines }, (_, i) => i + 1).join('<br>');
+        }
+
+        function resetCode() {
+            setLanguage();
+            setOutput([{ t: 'info', msg: '// Código resetado para o template original' }]);
+        }
+
+        function formatCode() {
+            setOutput([{ t: 'info', msg: '// Código formatado com sucesso ✨' }]);
+        }
+
+        function setOutput(lines) {
+            document.getElementById('outputContent').innerHTML = lines.map(l => `<div class="out-line ${l.t}">${l.msg}</div>`).join('');
+        }
+
+        function runCode() {
+            const dot = document.getElementById('statusDot');
+            const st = document.getElementById('statusText');
+            dot.className = 'status-dot running'; st.textContent = 'Executando...';
+            setOutput([{ t: 'info', msg: '// Executando testes...' }]);
+            setTimeout(() => {
+                dot.className = 'status-dot pass'; st.textContent = 'Passou!';
+                setOutput([
+                    { t: 'ok', msg: '✅ Teste 1: somarDois([2,7,11,15], 9)  →  [0, 1]  ✓' },
+                    { t: 'ok', msg: '✅ Teste 2: somarDois([3,2,4], 6)       →  [1, 2]  ✓' },
+                    { t: 'ok', msg: '✅ Teste 3: somarDois([3,3], 6)          →  [0, 1]  ✓' },
+                    { t: 'warn', msg: '⚡ Tempo de execução: 2ms' },
+                    { t: 'info', msg: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' },
+                    { t: 'ok', msg: '3/3 testes passaram — pronto para submeter!' },
+                ]);
+            }, 1200);
+        }
+
+        function submitCode() {
+            const dot = document.getElementById('statusDot');
+            const st = document.getElementById('statusText');
+            dot.className = 'status-dot running'; st.textContent = 'Submetendo...';
+            setOutput([{ t: 'info', msg: '// Enviando solução...' }]);
+            setTimeout(() => {
+                dot.className = 'status-dot pass'; st.textContent = 'Aceito!';
+                setOutput([
+                    { t: 'ok', msg: '✅ Todos os 10 casos de teste passaram!' },
+                    { t: 'ok', msg: '⚡ Complexidade: O(n) — Excelente!' },
+                    { t: 'warn', msg: '⭐ +120 XP adicionados ao seu perfil' },
+                ]);
+                setTimeout(() => document.getElementById('successOverlay').classList.remove('oculto'), 600);
+            }, 1800);
+        }
+
+        function switchTab(name, el) {
+            document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            ['desc', 'dica', 'rank'].forEach(t => {
+                document.getElementById('tab-' + t).classList.toggle('oculto', t !== name);
+            });
+        }
+
+        // TIMER
+        let seconds = 600;
+        const timerEl = document.getElementById('timerDisplay');
+        const tick = setInterval(() => {
+            seconds--;
+            if (seconds <= 0) { clearInterval(tick); timerEl.textContent = '⏱️ 00:00'; return; }
+            const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+            const s = String(seconds % 60).padStart(2, '0');
+            timerEl.textContent = `⏱️ ${m}:${s}`;
+            if (seconds <= 60) timerEl.classList.add('urgent');
+        }, 1000);
+
+        updateLines();
+    </script>
+</body>
+
+</html>

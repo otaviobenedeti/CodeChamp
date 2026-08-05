@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodeChamp</title>
+  <link rel="stylesheet" href="stylehome.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icon"><img src="logotrofeu.png" alt="logo"></div>
+      <div>
+        <div class="logo-text">CodeChamp</div>
+        <div class="logo-sub">Aprenda Programação com Desafios</div>
+      </div>
+    </div>
+    <div class="header-icons">
+      <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
+      <button class="icon-btn"><a href="loja.html">🛒</a></button>
+      <button class="icon-btn"><a href="conquista.html">🏅</a></button>
+      <button class="icon-btn"><a href="ranking.html">🏆</a></button>
+      <!-- <button class="icon-btn"><a href="">⚙️</a></button> -->
+      <button class="icon-btn"><a href="perfil.html">👤</a></button>
+      <button class="icon-btn"><a href="login.html">🔙</a></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="modes-grid">
+      <div class="mode-card" onclick="">
+        <div class="mode-title"><a href="desafio.html">⚡ Modo Speed</a></div>
+        <div class="mode-icon">⏱️</div>
+        <div class="mode-desc">Desafios Rápidos</div>
+        <div class="mode-sub">Quem acerta primeiro!</div>
+      </div>
+      <div class="mode-card" onclick="">
+        <div class="mode-title">🧠 Modo Maratona</div>
+        <div class="mode-icon">🧠</div>
+        <div class="mode-desc">Desafios Longos</div>
+        <div class="mode-sub">Resolva o grande problema!</div>
+      </div>
+      <div class="mode-card" onclick="">
+        <div class="mode-title"><a href="modox1.html">⚔️Batalha 1×1</a></div>
+        <div class="vs">
+          <div class="avatar">😎</div>
+          <div class="vs-label">VS</div>
+          <div class="avatar">🎮</div>
+        </div>
+        <div class="mode-desc">Duelo 1 x 1</div>
+        <div class="mode-sub">1 contra 1 — quem vence?</div>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button class="btn btn-primary"><a href="criarsala.html">➕ Criar Sala</a></button>
+      <button class="btn btn-primary" onclick="cadastro.classList.remove('oculto')">📝 Entrar com Código</button>
+    </section>
+
+    <div id="cadastro" class="modal oculto">
+
+      <div class="janela">
+
+        <h2>Insira o Codigo da Sala</h2>
+
+        <form id="formCad">
+
+          <label>Codigo:</label>
+          <input type="text" id="codigo" placeholder="Digite o código" maxlength="5" required>
+
+          <button type="reset" onclick="cadastro.classList.add('oculto')">
+            Cancelar
+          </button>
+
+          <button type="submit"><a href="sala.html">
+              Entrar
+            </a></button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </main>
+</body>
+<script src="menu.js"></script>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChamp — Resultados</title>
+    <link rel="stylesheet" href="stylepospartida.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+    <div class="logo">
+      <div class="logo-icon"><img src="logotrofeu.png" alt="logo"></div>
+      <div>
+        <div class="logo-text">CodeChamp</div>
+        <div class="logo-sub">Aprenda Programação com Desafios</div>
+      </div>
+    </div>
+    <div class="header-icons">
+      <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
+      <button class="icon-btn"><a href="loja.html">🛒</a></button>
+      <button class="icon-btn"><a href="conquista.html">🏅</a></button>
+      <button class="icon-btn"><a href="ranking.html">🏆</a></button>
+      <!-- <button class="icon-btn"><a href="">⚙️</a></button> -->
+      <button class="icon-btn"><a href="perfil.html">👤</a></button>
+      <button class="icon-btn"><a href="home.html">🔙</a></button>
+    </div>
+  </header>
+
+    <div class="results-hero">
+        <div class="fireworks" id="fireworks"></div>
+        <div class="hero-title">PARTIDA ENCERRADA!</div>
+        <div class="hero-sub">⚡ Speed Mode · 5 desafios · Sala #X7K2P9</div>
+    </div>
+
+    <!-- PÓDIO -->
+    <div class="podium-section">
+        <div class="podium-wrap">
+            <!-- 2º -->
+            <div class="podium-col p2">
+                <div class="p-avatar-big" style="border-color:#C0C0C0">OB</div>
+                <div class="p-podium-name">otavio_benedeti</div>
+                <div class="p-podium-score">3.820 pts</div>
+                <div class="podium-block p2-block">
+                    <span class="p-medal">🥈</span>
+                    <span class="p-pos">2º</span>
+                </div>
+            </div>
+            <!-- 1º -->
+            <div class="podium-col p1">
+                <div class="crown-anim">👑</div>
+                <div class="p-avatar-big" style="border-color:var(--gold)">MG</div>
+                <div class="p-podium-name winner-name">miguel_gerbi</div>
+                <div class="p-podium-score winner-score">4.650 pts</div>
+                <div class="podium-block p1-block">
+                    <span class="p-medal">🥇</span>
+                    <span class="p-pos">1º</span>
+                </div>
+            </div>
+            <!-- 3º -->
+            <div class="podium-col p3">
+                <div class="p-avatar-big" style="border-color:#CD7F32">IM</div>
+                <div class="p-podium-name">italo_mozer</div>
+                <div class="p-podium-score">3.240 pts</div>
+                <div class="podium-block p3-block">
+                    <span class="p-medal">🥉</span>
+                    <span class="p-pos">3º</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABELA COMPLETA + TIMELINE -->
+    <div class="results-body">
+
+        <div class="results-main">
+            <div class="section-card">
+                <div class="sec-title">📊 PLACAR COMPLETO</div>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Jogador</th>
+                            <th>Pontos</th>
+                            <th>Acertos</th>
+                            <th>Tempo médio</th>
+                            <th>XP ganho</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="section-card">
+                <div class="sec-title">⏱️ LINHA DO TEMPO DE SUBMISSÕES</div>
+                <div class="timeline-wrap">
+                    <div class="timeline-labels" id="timelineLabels"></div>
+                    <div class="timeline-chart" id="timelineChart"></div>
+                    <div class="timeline-axis">
+                        <span>0s</span><span>1min</span><span>2min</span><span>3min</span><span>4min</span><span>5min</span>
+                    </div>
+                </div>
+            </div>AS
+
+            <div class="section-card">
+                <div class="sec-title">🔍 DESEMPENHO POR DESAFIO</div>
+                <div class="challenge-breakdown" id="challengeBreakdown"></div>
+            </div>
+        </div>
+
+        <div class="results-sidebar">
+            <div class="my-result-card">
+                <div class="sec-title">⭐ SEU RESULTADO</div>
+                <div class="my-pos">🥇 1º Lugar</div>
+                <div class="xp-big">+240 XP</div>
+                <div class="coins-big">🪙 +180 coins</div>
+                <div class="elo-change"><span class="elo-up">▲ +32 ELO</span> → 1.482</div>
+                <div class="my-stats-grid">
+                    <div class="my-stat">
+                        <div class="my-stat-val">5/5</div>
+                        <div class="my-stat-label">Acertos</div>
+                    </div>
+                    <div class="my-stat">
+                        <div class="my-stat-val">1:48</div>
+                        <div class="my-stat-label">Tempo médio</div>
+                    </div>
+                    <div class="my-stat">
+                        <div class="my-stat-val">O(n)</div>
+                        <div class="my-stat-label">Complexidade</div>
+                    </div>
+                    <div class="my-stat">
+                        <div class="my-stat-val">100%</div>
+                        <div class="my-stat-label">Testes ok</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-ach-card" id="newAchCard">
+                <div class="sec-title">🏅 CONQUISTA DESBLOQUEADA!</div>
+                <div class="new-ach-item">
+                    <span class="new-ach-emoji">⚡</span>
+                    <div>
+                        <div class="new-ach-name">Speed Demon</div>
+                        <div class="new-ach-desc">Complete 50 desafios Speed</div>
+                        <div class="new-ach-xp">+300 XP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button class="act-btn revenge" onclick="location.href=''">🔁 Revanche</button>
+                <button class="act-btn new-room" onclick="location.href='criarsala.html'">➕ Nova Sala</button>
+                <button class="act-btn view-code">👁️ Ver Códigos</button>
+                <button class="act-btn home-btn" onclick="location.href='home.html'">🏠 Início</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const players = [
+            { pos: 1, name: 'miguel_gerbi', pts: 4650, acertos: '5/5', tempo: '01:48', xp: 240, you: true },
+            { pos: 2, name: 'otavio_benedeti', pts: 3820, acertos: '5/5', tempo: '02:12', xp: 160, you: false },
+            { pos: 3, name: 'italo_mozer', pts: 3240, acertos: '4/5', tempo: '02:38', xp: 120, you: false },
+            { pos: 4, name: 'luis_pereira', pts: 2890, acertos: '4/5', tempo: '03:10', xp: 90, you: false },
+        ];
+
+        const challenges = [
+            { name: 'Soma de Dois Números', diff: 'Fácil', solved: 4, fastest: 'miguel_gerbi', time: '00:54' },
+            { name: 'Palíndromo', diff: 'Fácil', solved: 4, fastest: 'otavio_b', time: '01:02' },
+            { name: 'FizzBuzz Avançado', diff: 'Médio', solved: 3, fastest: 'miguel_gerbi', time: '01:30' },
+            { name: 'Anagrama', diff: 'Médio', solved: 3, fastest: 'italo_mozer', time: '01:48' },
+            { name: 'Maior Subsequência', diff: 'Difícil', solved: 2, fastest: 'miguel_gerbi', time: '02:10' },
+        ];
+
+        document.getElementById('resultsTableBody').innerHTML = players.map(p => `
+  <tr class="${p.you ? 'you-row' : ''}">
+    <td class="pos-cell">${p.pos === 1 ? '🥇' : p.pos === 2 ? '🥈' : p.pos === 3 ? '🥉' : p.pos + 'º'}</td>
+    <td class="name-cell">${p.name}${p.you ? ' <span class="you-badge">VOCÊ</span>' : ''}</td>
+    <td class="pts-cell">${p.pts.toLocaleString()}</td>
+    <td>${p.acertos}</td>
+    <td class="fira">${p.tempo}</td>
+    <td class="xp-cell">+${p.xp} XP</td>
+  </tr>
+`).join('');
+
+        document.getElementById('challengeBreakdown').innerHTML = challenges.map((c, i) => `
+  <div class="ch-row">
+    <div class="ch-num">${i + 1}</div>
+    <div class="ch-info">
+      <div class="ch-name">${c.name}</div>
+      <div class="ch-meta">
+        <span class="diff-tag ${c.diff === 'Fácil' ? 'easy' : c.diff === 'Médio' ? 'med' : 'hard'}">${c.diff}</span>
+        <span class="ch-solved">${c.solved}/4 resolveram</span>
+        <span class="ch-fastest">⚡ ${c.fastest} em ${c.time}</span>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+        // Fireworks
+        const fw = document.getElementById('fireworks');
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'fw-particle';
+            p.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 60}%;animation-delay:${Math.random() * 3}s;background:${['#FFD700', '#8B2BE2', '#3DFF7A', '#4B8CFF', '#FF3B6B'][Math.floor(Math.random() * 5)]};`;
+            fw.appendChild(p);
+        }
+    </script>
+</body>
+
+</html>
