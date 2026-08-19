@@ -1,0 +1,103 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-08-07T19:45:07.336Z",
+  "__export_source": "backend-aula",
+  "resources": [
+    {
+      "_id": "wrk_backend",
+      "_type": "workspace",
+      "name": "Backend Aula"
+    },
+    {
+      "_id": "fld_api",
+      "_type": "request_group",
+      "parentId": "wrk_backend",
+      "name": "api"
+    },
+    {
+      "_id": "fld_Usuario",
+      "_type": "request_group",
+      "parentId": "fld_api",
+      "name": "Usuario"
+    },
+    {
+      "_id": "req_Usuario_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Usuario",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/usuario/listar"
+    },
+    {
+      "_id": "req_Usuario_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Usuario",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/usuario/buscar/:id"
+    },
+    {
+      "_id": "req_Usuario_POST",
+      "_type": "request",
+      "parentId": "fld_Usuario",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/usuario/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nomeCompleto\": \"string\",\n  \"nomeUsuario\": \"string\",\n  \"email\": \"string\",\n  \"senha\": \"string\",\n  \"telefone\": \"string\",\n  \"cpf\": \"string\",\n  \"dataNascimento\": \"2026-08-07T19:45:07.330Z\",\n  \"criadoEm\": \"2026-08-07T19:45:07.336Z\",\n  \"atualizadoEm\": \"2026-08-07T19:45:07.336Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Usuario_PUT",
+      "_type": "request",
+      "parentId": "fld_Usuario",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/usuario/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nomeCompleto\": \"string\",\n  \"nomeUsuario\": \"string\",\n  \"email\": \"string\",\n  \"senha\": \"string\",\n  \"telefone\": \"string\",\n  \"cpf\": \"string\",\n  \"dataNascimento\": \"2026-08-07T19:45:07.330Z\",\n  \"criadoEm\": \"2026-08-07T19:45:07.336Z\",\n  \"atualizadoEm\": \"2026-08-07T19:45:07.336Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Usuario_DELETE",
+      "_type": "request",
+      "parentId": "fld_Usuario",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/usuario/excluir/:id"
+    }
+  ]
+}

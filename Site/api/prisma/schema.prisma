@@ -12,104 +12,23 @@ datasource db {
   provider = "mysql"
 }
 
-model Usuarios {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  senha String
+model Usuario {
+  id               Int @id @default(autoincrement())
 
-  login           Login?
-  cadastro        Cadastro?
-  perfil          PerfilUsuario?
-  ranking         Ranking?
-  desafiosCriados Desafios[]
-  codigos         Codigos[]
+  nomeCompleto     String
+  nomeUsuario      String @unique
+  email            String @unique
+  senha            String
+  telefone         String @unique
+  cpf              String @unique
+  dataNascimento   DateTime
+  criadoEm         DateTime @default(now())
+  atualizadoEm     DateTime @updatedAt
 }
 
-model Login {
-  id    Int    @id @default(autoincrement())
-  email String
-  senha String
+// model Atividade {}
 
-  usuarios   Usuarios @relation(fields: [usuariosId], references: [id])
-  usuariosId Int      @unique
-}
+// model Questoes {}
 
-model Cadastro {
-  id             Int      @id @default(autoincrement())
-  nome           String
-  nomeUsuario    String   @unique
-  email          String   @unique
-  senha          String
-  cpf            String   @unique
-  dataNascimento DateTime
+// model Batalha {}
 
-  usuarios   Usuarios @relation(fields: [usuariosId], references: [id])
-  usuariosId Int      @unique
-}
-
-model PerfilUsuario {
-  id Int @id @default(autoincrement())
-
-  usuarios   Usuarios @relation(fields: [usuariosId], references: [id])
-  usuariosId Int      @unique
-}
-
-model Ranking {
-  id         Int @id @default(autoincrement())
-  desempenho Int
-
-  usuarios   Usuarios @relation(fields: [usuariosId], references: [id])
-  usuariosId Int      @unique
-}
-
-model Desafios {
-  id          Int         @id @default(autoincrement())
-  descricao   String
-  dificuldade Dificuldade @default(FACIL)
-  casosTeste  String      @db.Text
-
-  criador   Usuarios @relation(fields: [criadorId], references: [id])
-  criadorId Int
-
-  listagens ListagemDesafio[]
-  codigos   Codigos[]
-}
-
-model ListagemDesafio {
-  id    Int @id @default(autoincrement())
-  idAdm Int
-
-  desafio   Desafios @relation(fields: [desafioId], references: [id])
-  desafioId Int
-
-  codigos Codigos[]
-}
-
-model Codigos {
-  id Int @id @default(autoincrement())
-
-  usuarios   Usuarios @relation(fields: [usuariosId], references: [id])
-  usuariosId Int
-
-  desafio   Desafios @relation(fields: [desafioId], references: [id])
-  desafioId Int
-
-  listagemDesafio   ListagemDesafio @relation(fields: [listagemDesafioId], references: [id])
-  listagemDesafioId Int
-
-  avaliacao AvaliacaoCodigo?
-}
-
-model AvaliacaoCodigo {
-  id                  Int    @id @default(autoincrement())
-  avaliacaoAutomatica String @db.Text
-
-  codigo   Codigos @relation(fields: [codigoId], references: [id])
-  codigoId Int     @unique
-}
-
-enum Dificuldade {
-  FACIL
-  MEDIO
-  DIFICIL
-}
