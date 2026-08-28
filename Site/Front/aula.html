@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeChamp</title>
   <link rel="stylesheet" href="styleaula.css">
-    
+
 </head>
+
 <body>
 
   <header>
@@ -18,38 +20,28 @@
       </div>
     </div>
     <div class="header-icons">
-          <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
-          <button class="icon-btn"><a href="loja.html">🛒</a></button>
-          <button class="icon-btn"><a href="conquista.html">🏅</a></button>
-          <button class="icon-btn"><a href="ranking.html">🏆</a></button>
-          <!-- <button class="icon-btn"><a href="">⚙️</a></button> -->
-          <button class="icon-btn"><a href="perfil.html">👤</a></button>
-            <button class="icon-btn"><a href="home.html">🔙</a></button>
-        </div>
+      <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
+      <button class="icon-btn"><a href="perfil.html">👤</a></button>
+      <button class="icon-btn"><a href="home.html">🔙</a></button>
+    </div>
   </header>
 
-  <!-- SEARCH -->
   <div class="search-section">
     <div class="search-wrap">
       <div class="search-title">🎓 AULAS</div>
       <div class="search-bar">
         <div class="search-input-wrap">
           <span>🔍</span>
-          <input
-            class="search-input"
-            type="text"
-            id="searchInput"
-            placeholder="Pesquisar aulas... ex: JavaScript, Backend, Arrays..."
-            oninput="filterLessons()"
-          >
+          <input class="search-input" type="text" id="searchInput"
+            placeholder="Pesquisar aulas... ex: JavaScript, Backend, Arrays..." oninput="filterLessons()">
         </div>
       </div>
       <div class="filter-tags">
         <span class="tag all active" onclick="setFilter('all', this)">✨ Todas</span>
-        <span class="tag js"     onclick="setFilter('javascript', this)">⚡ JavaScript</span>
-        <span class="tag front"  onclick="setFilter('frontend', this)">🖥️ Frontend</span>
-        <span class="tag back"   onclick="setFilter('backend', this)">🔧 Backend</span>
-        <span class="tag cpp"    onclick="setFilter('cpp', this)">⚙️ C++</span>
+        <span class="tag js" onclick="setFilter('javascript', this)">⚡ JavaScript</span>
+        <span class="tag front" onclick="setFilter('frontend', this)">🖥️ Frontend</span>
+        <span class="tag back" onclick="setFilter('backend', this)">🔧 Backend</span>
+        <span class="tag cpp" onclick="setFilter('cpp', this)">⚙️ C++</span>
         <span class="tag python" onclick="setFilter('python', this)">🐍 Python</span>
       </div>
     </div>
@@ -63,13 +55,9 @@
 
       <div class="video-player-card">
         <div class="video-frame">
-          <iframe
-            id="mainVideo"
-            src="https://www.youtube.com/embed/BXqUH86F-kA?autoplay=0&rel=0"
-            title="Aula CodeChamp"
+          <iframe id="mainVideo" src="https://www.youtube.com/embed/BXqUH86F-kA?autoplay=0&rel=0" title="Aula CodeChamp"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-category cat-js" id="videoCat">⚡ JavaScript</div>
@@ -82,75 +70,37 @@
           <div class="video-actions">
             <button class="action-btn" id="likeBtn" onclick="toggleLike()">👍 Curtir</button>
             <button class="action-btn">🔖 Salvar</button>
-            <a class="yt-link" id="ytLink" href="https://www.youtube.com/watch?v=BXqUH86F-kA" target="_blank">▶ Ver no YouTube</a>
+            <a class="yt-link" id="ytLink" href="https://www.youtube.com/watch?v=BXqUH86F-kA" target="_blank">▶ Ver no
+              YouTube</a>
           </div>
         </div>
       </div>
 
-      <!-- COMMENTS -->
       <div class="comments-section">
-        <div class="comments-title">💬 Comentários <span style="font-size:12px;color:#9977cc;font-family:'Rajdhani',sans-serif;font-weight:400;letter-spacing:0">(3)</span></div>
-
+        <div class="comments-title">💬 Comentários</div>
         <div class="comment-input-row">
           <div class="comment-avatar">😎</div>
-          <textarea class="comment-input" id="commentInput" placeholder="Deixe seu comentário sobre a aula..."></textarea>
+          <textarea class="comment-input" id="commentInput" placeholder="Deixe um comentário..."></textarea>
           <button class="send-btn" onclick="postComment()">➤</button>
         </div>
-
-        <div class="comment-list" id="commentList">
-          <div class="comment-item">
-            <div class="c-avatar">🎮</div>
-            <div class="c-body">
-              <div class="c-header">
-                <span class="c-name">otavio_benedeti</span>
-                <span class="c-time">há 2 horas</span>
-              </div>
-              <div class="c-text">Melhor explicação sobre closures que já vi! Ficou muito claro com os exemplos práticos. 🔥</div>
-              <button class="c-like" onclick="this.style.color='var(--gold)'">👍 4</button>
-            </div>
-          </div>
-          <div class="comment-item">
-            <div class="c-avatar">🦁</div>
-            <div class="c-body">
-              <div class="c-header">
-                <span class="c-name">italo_mozer</span>
-                <span class="c-time">há 5 horas</span>
-              </div>
-              <div class="c-text">Consegui resolver o desafio de arrays depois de assistir essa aula. Valeu demais!</div>
-              <button class="c-like" onclick="this.style.color='var(--gold)'">👍 2</button>
-            </div>
-          </div>
-          <div class="comment-item">
-            <div class="c-avatar">👽</div>
-            <div class="c-body">
-              <div class="c-header">
-                <span class="c-name">luis_pereira</span>
-                <span class="c-time">há 1 dia</span>
-              </div>
-              <div class="c-text">Poderia ter uma aula sobre Promises e async/await também? Ficaria incrível.</div>
-              <button class="c-like" onclick="this.style.color='var(--gold)'">👍 7</button>
-            </div>
-          </div>
-        </div>
+        <div class="comment-list" id="commentList"></div>
       </div>
     </div>
 
-    <!-- SIDEBAR PLAYLIST -->
+    <!-- PLAYLIST -->
     <div class="playlist-sidebar">
       <div class="playlist-card">
         <div class="playlist-header">
-          <span class="playlist-title">📋 PLAYLIST</span>
-          <span class="playlist-count" id="lessonCount">5</span>
+          <div class="playlist-title">📚 PLAYLIST</div>
+          <div class="playlist-count" id="lessonCount">8</div>
         </div>
-        <div class="lesson-list" id="lessonList">
-          <!-- preenchido pelo JS -->
-        </div>
+        <div class="lesson-list" id="lessonList"></div>
       </div>
 
       <div class="progress-card">
         <div class="prog-header">
-          <span>📈 SEU PROGRESSO</span>
-          <span id="progPct">2 / 5 aulas</span>
+          <span>PROGRESSO</span>
+          <span id="progPct">1 / 8 aulas</span>
         </div>
         <div class="prog-track">
           <div class="prog-fill" id="progFill"></div>
@@ -160,113 +110,163 @@
 
   </div>
 
+  <!-- BOTÃO FLUTUANTE PARA ADICIONAR VÍDEO -->
+  <button class="fab-add" onclick="openAddModal()" title="Adicionar vídeo"><span>+</span></button>
+
+  <!-- MODAL: ADICIONAR VÍDEO -->
+  <div class="modal-overlay" id="addModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">➕ ADICIONAR VÍDEO</div>
+        <button class="modal-close" onclick="closeAddModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label" for="newVideoName">Nome do vídeo</label>
+          <input class="field-input" type="text" id="newVideoName" placeholder="Ex: Introdução a Arrays em JS">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="newVideoUrl">URL do YouTube</label>
+          <input class="field-input" type="text" id="newVideoUrl" placeholder="https://www.youtube.com/watch?v=...">
+          <span class="field-hint">Aceita links do tipo youtube.com/watch?v=, youtu.be/ ou embed/</span>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="newVideoLang">Linguagem / Categoria</label>
+          <select class="field-select" id="newVideoLang">
+            <option value="javascript">⚡ JavaScript</option>
+            <option value="frontend">🖥️ Frontend</option>
+            <option value="backend">🔧 Backend</option>
+            <option value="cpp">⚙️ C++</option>
+            <option value="python">🐍 Python</option>
+          </select>
+        </div>
+        <span class="field-error" id="modalError">Preencha o nome e um link válido do YouTube.</span>
+        <button class="modal-submit" onclick="submitNewVideo()">ADICIONAR À PLAYLIST</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✅ Vídeo adicionado!</div>
+
   <script>
-    const lessons = [
-      {
-        id: 0,
-        title: "JavaScript do Zero – Variáveis, Tipos e Funções",
-        category: "javascript",
-        catLabel: "⚡ JavaScript",
-        catClass: "cat-js",
-        dotColor: "#FFD700",
-        duration: "48:32",
-        level: "Iniciante",
-        views: "12.4 mil",
-        embedId: "BXqUH86F-kA",
-        ytUrl: "https://www.youtube.com/watch?v=BXqUH86F-kA"
-      },
-      {
-        id: 1,
-        title: "Frontend com HTML & CSS – Criando Layouts Modernos",
-        category: "frontend",
-        catLabel: "🖥️ Frontend",
-        catClass: "cat-front",
-        dotColor: "#4B8CFF",
-        duration: "1:02:14",
-        level: "Iniciante",
-        views: "9.8 mil",
-        embedId: "Af7arb5lC4U",
-        ytUrl: "https://www.youtube.com/watch?v=Af7arb5lC4U"
-      },
-      {
-        id: 2,
-        title: "Backend com Node.js – APIs RESTful do Zero",
-        category: "backend",
-        catLabel: "🔧 Backend",
-        catClass: "cat-back",
-        dotColor: "#3DFF7A",
-        duration: "55:47",
-        level: "Intermediário",
-        views: "7.1 mil",
-        embedId: "fnlnFKrECtU",
-        ytUrl: "https://www.youtube.com/watch?v=fnlnFKrECtU"
-      },
-      {
-        id: 3,
-        title: "C++ para Iniciantes – Ponteiros e Memória",
-        category: "cpp",
-        catLabel: "⚙️ C++",
-        catClass: "cat-cpp",
-        dotColor: "#FF3B6B",
-        duration: "38:20",
-        level: "Intermediário",
-        views: "5.3 mil",
-        embedId: "ZzaPdXTrRiw",
-        ytUrl: "https://www.youtube.com/watch?v=ZzaPdXTrRiw"
-      },
-      {
-        id: 4,
-        title: "Python – Listas, Dicionários e Funções Avançadas",
-        category: "python",
-        catLabel: "🐍 Python",
-        catClass: "cat-python",
-        dotColor: "#56B4D3",
-        duration: "44:55",
-        level: "Iniciante",
-        views: "15.2 mil",
-        embedId: "rfscVS0vtbw",
-        ytUrl: "https://www.youtube.com/watch?v=rfscVS0vtbw"
-      },
-      {
-        id: 5,
-        title: "JavaScript – DOM Manipulation e Eventos na Prática",
-        category: "javascript",
-        catLabel: "⚡ JavaScript",
-        catClass: "cat-js",
-        dotColor: "#FFD700",
-        duration: "36:18",
-        level: "Intermediário",
-        views: "8.7 mil",
-        embedId: "y17RuWkWdn8",
-        ytUrl: "https://www.youtube.com/watch?v=y17RuWkWdn8"
-      },
-      {
-        id: 6,
-        title: "Frontend – Flexbox e Grid CSS Dominando Layouts",
-        category: "frontend",
-        catLabel: "🖥️ Frontend",
-        catClass: "cat-front",
-        dotColor: "#4B8CFF",
-        duration: "51:40",
-        level: "Iniciante",
-        views: "11.3 mil",
-        embedId: "K74l26pE4YA",
-        ytUrl: "https://www.youtube.com/watch?v=K74l26pE4YA"
-      },
-      {
-        id: 7,
-        title: "Backend – Banco de Dados com PostgreSQL e Node.js",
-        category: "backend",
-        catLabel: "🔧 Backend",
-        catClass: "cat-back",
-        dotColor: "#3DFF7A",
-        duration: "1:10:22",
-        level: "Avançado",
-        views: "6.4 mil",
-        embedId: "qw--VYLpxAU",
-        ytUrl: "https://www.youtube.com/watch?v=qw--VYLpxAU"
+    const categoryMeta = {
+      javascript: { catLabel: "⚡ JavaScript", catClass: "cat-js", dotColor: "#FFD700" },
+      frontend: { catLabel: "🖥️ Frontend", catClass: "cat-front", dotColor: "#4B8CFF" },
+      backend: { catLabel: "🔧 Backend", catClass: "cat-back", dotColor: "#3DFF7A" },
+      cpp: { catLabel: "⚙️ C++", catClass: "cat-cpp", dotColor: "#FF3B6B" },
+      python: { catLabel: "🐍 Python", catClass: "cat-python", dotColor: "#56B4D3" }
+    };
+
+    const STORAGE_KEY = 'codechamp_custom_lessons';
+
+    function loadCustomLessons() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        console.error('Erro ao ler vídeos salvos:', e);
+        return [];
       }
-    ];
+    }
+
+    function saveCustomLessons() {
+      const custom = lessons.filter(l => l.custom);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(custom));
+      } catch (e) {
+        console.error('Erro ao salvar vídeo:', e);
+      }
+    }
+
+    // Extrai o ID do vídeo a partir de vários formatos de URL do YouTube
+    function extractYouTubeId(url) {
+      if (!url) return null;
+      const patterns = [
+        /(?:youtube\.com\/watch\?v=)([\w-]{11})/,
+        /(?:youtu\.be\/)([\w-]{11})/,
+        /(?:youtube\.com\/embed\/)([\w-]{11})/,
+        /(?:youtube\.com\/shorts\/)([\w-]{11})/
+      ];
+      for (const p of patterns) {
+        const m = url.match(p);
+        if (m) return m[1];
+      }
+      return null;
+    }
+
+    function openAddModal() {
+      document.getElementById('addModal').classList.add('open');
+      document.getElementById('modalError').classList.remove('show');
+    }
+
+    function closeAddModal() {
+      document.getElementById('addModal').classList.remove('open');
+      document.getElementById('newVideoName').value = '';
+      document.getElementById('newVideoUrl').value = '';
+      document.getElementById('newVideoLang').selectedIndex = 0;
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    function submitNewVideo() {
+      const nameInput = document.getElementById('newVideoName');
+      const urlInput = document.getElementById('newVideoUrl');
+      const langSelect = document.getElementById('newVideoLang');
+      const errorEl = document.getElementById('modalError');
+
+      const name = nameInput.value.trim();
+      const url = urlInput.value.trim();
+      const lang = langSelect.value;
+      const embedId = extractYouTubeId(url);
+
+      if (!name || !embedId) {
+        errorEl.classList.add('show');
+        return;
+      }
+      errorEl.classList.remove('show');
+
+      const meta = categoryMeta[lang];
+      const newId = lessons.length ? Math.max(...lessons.map(l => l.id)) + 1 : 0;
+
+      const newLesson = {
+        id: newId,
+        title: name,
+        category: lang,
+        catLabel: meta.catLabel,
+        catClass: meta.catClass,
+        dotColor: meta.dotColor,
+        duration: "—",
+        level: "Comunidade",
+        views: "0",
+        embedId: embedId,
+        ytUrl: url,
+        custom: true
+      };
+
+      lessons.push(newLesson);
+      saveCustomLessons();
+      closeAddModal();
+      showToast('✅ Vídeo adicionado à playlist!');
+      loadLesson(newId);
+    }
+
+    function removeCustomLesson(id, evt) {
+      evt.stopPropagation();
+      const idx = lessons.findIndex(l => l.id === id);
+      if (idx === -1) return;
+      lessons.splice(idx, 1);
+      saveCustomLessons();
+      if (activeLesson === id) {
+        activeLesson = lessons.length ? lessons[0].id : null;
+        if (activeLesson !== null) loadLesson(activeLesson);
+      }
+      renderPlaylist(getFiltered());
+    }
 
     let activeFilter = 'all';
     let activeLesson = 0;
@@ -279,7 +279,7 @@
 
       toShow.forEach((l, idx) => {
         const div = document.createElement('div');
-        div.className = 'lesson-item' + (l.id === activeLesson ? ' active' : '');
+        div.className = 'lesson-item' + (l.id === activeLesson ? ' active' : '') + (l.custom ? ' custom' : '');
         div.onclick = () => loadLesson(l.id);
         div.innerHTML = `
           <div class="lesson-thumb">
@@ -295,6 +295,7 @@
               <span class="lesson-dur">⭐ ${l.level}</span>
             </div>
           </div>
+          ${l.custom ? `<span class="custom-badge">VOCÊ</span><button class="lesson-remove" onclick="removeCustomLesson(${l.id}, event)" title="Remover">🗑️</button>` : ''}
         `;
         list.appendChild(div);
       });
@@ -331,7 +332,7 @@
       const q = document.getElementById('searchInput').value.toLowerCase();
       return lessons.filter(l => {
         const matchCat = activeFilter === 'all' || l.category === activeFilter;
-        const matchQ   = !q || l.title.toLowerCase().includes(q) || l.category.includes(q);
+        const matchQ = !q || l.title.toLowerCase().includes(q) || l.category.includes(q);
         return matchCat && matchQ;
       });
     }
@@ -342,17 +343,18 @@
 
     function updateProgress() {
       const total = lessons.length;
-      const done  = activeLesson + 1;
-      document.getElementById('progPct').textContent = `${done} / 8 aulas`;
+      const posIdx = lessons.findIndex(l => l.id === activeLesson);
+      const done = posIdx === -1 ? 1 : posIdx + 1;
+      document.getElementById('progPct').textContent = `${done} / ${total} aulas`;
       document.getElementById('progFill').style.width = `${(done / total) * 100}%`;
     }
 
     function postComment() {
       const input = document.getElementById('commentInput');
-      const text  = input.value.trim();
+      const text = input.value.trim();
       if (!text) return;
       const list = document.getElementById('commentList');
-      const div  = document.createElement('div');
+      const div = document.createElement('div');
       div.className = 'comment-item';
       div.innerHTML = `
         <div class="c-avatar">😎</div>
@@ -370,10 +372,22 @@
       input.style.height = '42px';
     }
 
-    // init
+    // init — carrega vídeos salvos pelo usuário e junta com a playlist base
+    const savedCustom = loadCustomLessons();
+    savedCustom.forEach(l => lessons.push(l));
+
     renderPlaylist();
     updateProgress();
+
+    // fecha o modal clicando fora do card ou com a tecla ESC
+    document.getElementById('addModal').addEventListener('click', (e) => {
+      if (e.target.id === 'addModal') closeAddModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAddModal();
+    });
   </script>
 
 </body>
-</html>
+
+</html> 
