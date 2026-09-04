@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+// ==============================
+// ENUMS
+// ==============================
+
 enum UserRole {
   USER
   ADMIN
@@ -16,6 +21,12 @@ enum Difficulty {
   EASY
   MEDIUM
   HARD
+}
+
+enum QuestionType {
+  BUG_FINDING
+  CODE_WRITING
+  MULTIPLE_CHOICE
 }
 
 enum QuestionStatus {
@@ -30,12 +41,16 @@ enum LessonStatus {
   ARCHIVED
 }
 
-enum AchievementType {
-  PROBLEM_SOLVING
-  STREAK
-  LESSON
-  SPECIAL
+enum Theme {
+  LIGHT
+  DARK
+  SYSTEM
 }
+
+
+// ==============================
+// USER
+// ==============================
 
 model User {
   id        String   @id @default(cuid())
@@ -43,50 +58,47 @@ model User {
   username  String   @unique
   email     String   @unique
   password  String
-
   role      UserRole @default(USER)
   avatarUrl String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  preferences UserPreferences?
+
+  lessonProgresses   UserLessonProgress[]
+  questionProgresses UserQuestionProgress[]
+
   @@map("users")
 }
 
-model Question {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  description String
-  difficulty  Difficulty
 
-  status      QuestionStatus @default(DRAFT)
+// ==============================
+// USER PREFERENCES
+// ==============================
 
-  constraints String?
-  examples    Json?
-  starterCode Json?
+model UserPreferences {
+  id     String @id @default(cuid())
+  userId String @unique
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  theme Theme @default(SYSTEM)
 
-  @@map("questions")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_preferences")
 }
 
-model Tag {
-  id        String   @id @default(cuid())
-  name      String
-  slug      String   @unique
-  createdAt DateTime @default(now())
 
-  @@map("tags")
-}
+// ==============================
+// LESSON
+// ==============================
 
 model Lesson {
-  id          String   @id @default(cuid())
+  id          String       @id @default(cuid())
   title       String
-  slug        String   @unique
+  slug        String       @unique
   description String?
-  content     String
+  youtubeUrl  String
 
   status     LessonStatus @default(DRAFT)
   difficulty Difficulty?
@@ -95,18 +107,203 @@ model Lesson {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  progress UserLessonProgress[]
+
+  @@index([status])
+  @@index([order])
+
   @@map("lessons")
 }
 
-model Achievement {
-  id          String          @id @default(cuid())
-  name        String
-  slug        String          @unique
+
+// ==============================
+// USER LESSON PROGRESS
+// ==============================
+
+model UserLessonProgress {
+  id       String @id @default(cuid())
+  userId   String
+  lessonId String
+
+  completed   Boolean   @default(false)
+  watchedAt   DateTime?
+  completedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId])
+  @@index([lessonId])
+
+  @@map("user_lesson_progress")
+}
+
+
+// ==============================
+// QUESTION
+// ==============================
+
+model Question {
+  id          String         @id @default(cuid())
+  title       String
+  slug        String         @unique
   description String
-  icon        String?
-  type        AchievementType
+
+  type       QuestionType
+  difficulty Difficulty
+  status     QuestionStatus @default(DRAFT)
+
+  language String?
 
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("achievements")
+  bugFinding     BugFindingQuestion?
+  codeWriting    CodeWritingQuestion?
+  multipleChoice MultipleChoiceQuestion?
+
+  tags QuestionTag[]
+
+  progress UserQuestionProgress[]
+
+  @@index([type])
+  @@index([difficulty])
+  @@index([status])
+
+  @@map("questions")
+}
+
+
+// ==============================
+// BUG FINDING QUESTION
+// ==============================
+
+model BugFindingQuestion {
+  id         String @id @default(cuid())
+  questionId String @unique
+
+  code        String
+  errorLine   Int
+  explanation String?
+  
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@map("bug_finding_questions")
+}
+
+
+// ==============================
+// CODE WRITING QUESTION
+// ==============================
+
+model CodeWritingQuestion {
+  id         String @id @default(cuid())
+  questionId String @unique
+
+  starterCode  String?
+  solutionCode String
+  explanation  String?
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@map("code_writing_questions")
+}
+
+
+// ==============================
+// MULTIPLE CHOICE QUESTION
+// ==============================
+
+model MultipleChoiceQuestion {
+  id         String @id @default(cuid())
+  questionId String @unique
+
+  question Question @relation(fields: [questionId],references: [id],onDelete: Cascade)
+
+  options QuestionOption[]
+
+  @@map("multiple_choice_questions")
+}
+
+
+// ==============================
+// QUESTION OPTION
+// ==============================
+
+model QuestionOption {
+  id         String @id @default(cuid())
+  questionId String
+
+  text      String
+  isCorrect Boolean @default(false)
+  order     Int     @default(0)
+
+  question MultipleChoiceQuestion @relation(fields: [questionId],references: [id], onDelete: Cascade)
+
+  @@index([questionId])
+
+  @@map("question_options")
+}
+
+
+// ==============================
+// TAG
+// ==============================
+
+model Tag {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  questions QuestionTag[]
+
+  @@map("tags")
+}
+
+
+// ==============================
+// QUESTION TAG
+// ==============================
+
+model QuestionTag {
+  questionId String
+  tagId      String
+
+  question Question @relation(fields: [questionId],references: [id],onDelete: Cascade)
+
+  tag Tag @relation(fields: [tagId],references: [id],onDelete: Cascade)
+
+  @@id([questionId, tagId])
+
+  @@map("question_tags")
+}
+
+
+// ==============================
+// USER QUESTION PROGRESS
+// ==============================
+
+model UserQuestionProgress {
+  id         String @id @default(cuid())
+  userId     String
+  questionId String
+
+  attempts Int     @default(0)
+  solved   Boolean @default(false)
+
+  solvedAt      DateTime?
+  lastAttemptAt DateTime?
+
+  user User @relation(fields: [userId],references: [id],onDelete: Cascade)
+
+  question Question @relation(fields: [questionId],references: [id],onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@index([userId])
+  @@index([questionId])
+
+  @@map("user_question_progress")
 }
