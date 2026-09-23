@@ -1,0 +1,1027 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-09-23T18:58:22.745Z",
+  "__export_source": "backend-aula",
+  "resources": [
+    {
+      "_id": "wrk_backend",
+      "_type": "workspace",
+      "name": "Backend Aula"
+    },
+    {
+      "_id": "fld_backend",
+      "_type": "request_group",
+      "parentId": "wrk_backend",
+      "name": "backend"
+    },
+    {
+      "_id": "fld_User",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "User"
+    },
+    {
+      "_id": "req_User_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_User",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/user/listar"
+    },
+    {
+      "_id": "req_User_GET_ID",
+      "_type": "request",
+      "parentId": "fld_User",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/user/buscar/:id"
+    },
+    {
+      "_id": "req_User_POST",
+      "_type": "request",
+      "parentId": "fld_User",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/user/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.732Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_User_PUT",
+      "_type": "request",
+      "parentId": "fld_User",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/user/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.732Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_User_DELETE",
+      "_type": "request",
+      "parentId": "fld_User",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/user/excluir/:id"
+    },
+    {
+      "_id": "fld_UserPreferences",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "UserPreferences"
+    },
+    {
+      "_id": "req_UserPreferences_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_UserPreferences",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/userpreferences/listar"
+    },
+    {
+      "_id": "req_UserPreferences_GET_ID",
+      "_type": "request",
+      "parentId": "fld_UserPreferences",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/userpreferences/buscar/:id"
+    },
+    {
+      "_id": "req_UserPreferences_POST",
+      "_type": "request",
+      "parentId": "fld_UserPreferences",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/userpreferences/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"userId\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_UserPreferences_PUT",
+      "_type": "request",
+      "parentId": "fld_UserPreferences",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/userpreferences/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"userId\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_UserPreferences_DELETE",
+      "_type": "request",
+      "parentId": "fld_UserPreferences",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/userpreferences/excluir/:id"
+    },
+    {
+      "_id": "fld_Lesson",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "Lesson"
+    },
+    {
+      "_id": "req_Lesson_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Lesson",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/lesson/listar"
+    },
+    {
+      "_id": "req_Lesson_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Lesson",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/lesson/buscar/:id"
+    },
+    {
+      "_id": "req_Lesson_POST",
+      "_type": "request",
+      "parentId": "fld_Lesson",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/lesson/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"string\",\n  \"language\": \"string\",\n  \"description\": \"string\",\n  \"youtubeUrl\": \"string\",\n  \"order\": 0,\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Lesson_PUT",
+      "_type": "request",
+      "parentId": "fld_Lesson",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/lesson/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"string\",\n  \"language\": \"string\",\n  \"description\": \"string\",\n  \"youtubeUrl\": \"string\",\n  \"order\": 0,\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Lesson_DELETE",
+      "_type": "request",
+      "parentId": "fld_Lesson",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/lesson/excluir/:id"
+    },
+    {
+      "_id": "fld_UserLessonProgress",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "UserLessonProgress"
+    },
+    {
+      "_id": "req_UserLessonProgress_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_UserLessonProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/userlessonprogress/listar"
+    },
+    {
+      "_id": "req_UserLessonProgress_GET_ID",
+      "_type": "request",
+      "parentId": "fld_UserLessonProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/userlessonprogress/buscar/:id"
+    },
+    {
+      "_id": "req_UserLessonProgress_POST",
+      "_type": "request",
+      "parentId": "fld_UserLessonProgress",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/userlessonprogress/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"userId\": \"string\",\n  \"lessonId\": \"string\",\n  \"completed\": true,\n  \"watchedAt\": \"2026-09-23T18:58:22.744Z\",\n  \"completedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_UserLessonProgress_PUT",
+      "_type": "request",
+      "parentId": "fld_UserLessonProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/userlessonprogress/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"userId\": \"string\",\n  \"lessonId\": \"string\",\n  \"completed\": true,\n  \"watchedAt\": \"2026-09-23T18:58:22.744Z\",\n  \"completedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_UserLessonProgress_DELETE",
+      "_type": "request",
+      "parentId": "fld_UserLessonProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/userlessonprogress/excluir/:id"
+    },
+    {
+      "_id": "fld_Question",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "Question"
+    },
+    {
+      "_id": "req_Question_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Question",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/question/listar"
+    },
+    {
+      "_id": "req_Question_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Question",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/question/buscar/:id"
+    },
+    {
+      "_id": "req_Question_POST",
+      "_type": "request",
+      "parentId": "fld_Question",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/question/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"description\": \"string\",\n  \"language\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Question_PUT",
+      "_type": "request",
+      "parentId": "fld_Question",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/question/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"description\": \"string\",\n  \"language\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Question_DELETE",
+      "_type": "request",
+      "parentId": "fld_Question",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/question/excluir/:id"
+    },
+    {
+      "_id": "fld_BugFindingQuestion",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "BugFindingQuestion"
+    },
+    {
+      "_id": "req_BugFindingQuestion_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_BugFindingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/bugfindingquestion/listar"
+    },
+    {
+      "_id": "req_BugFindingQuestion_GET_ID",
+      "_type": "request",
+      "parentId": "fld_BugFindingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/bugfindingquestion/buscar/:id"
+    },
+    {
+      "_id": "req_BugFindingQuestion_POST",
+      "_type": "request",
+      "parentId": "fld_BugFindingQuestion",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/bugfindingquestion/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"code\": \"string\",\n  \"errorLine\": 0,\n  \"explanation\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_BugFindingQuestion_PUT",
+      "_type": "request",
+      "parentId": "fld_BugFindingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/bugfindingquestion/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"code\": \"string\",\n  \"errorLine\": 0,\n  \"explanation\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_BugFindingQuestion_DELETE",
+      "_type": "request",
+      "parentId": "fld_BugFindingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/bugfindingquestion/excluir/:id"
+    },
+    {
+      "_id": "fld_CodeWritingQuestion",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "CodeWritingQuestion"
+    },
+    {
+      "_id": "req_CodeWritingQuestion_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_CodeWritingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/codewritingquestion/listar"
+    },
+    {
+      "_id": "req_CodeWritingQuestion_GET_ID",
+      "_type": "request",
+      "parentId": "fld_CodeWritingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/codewritingquestion/buscar/:id"
+    },
+    {
+      "_id": "req_CodeWritingQuestion_POST",
+      "_type": "request",
+      "parentId": "fld_CodeWritingQuestion",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/codewritingquestion/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"starterCode\": \"string\",\n  \"solutionCode\": \"string\",\n  \"explanation\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_CodeWritingQuestion_PUT",
+      "_type": "request",
+      "parentId": "fld_CodeWritingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/codewritingquestion/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"starterCode\": \"string\",\n  \"solutionCode\": \"string\",\n  \"explanation\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_CodeWritingQuestion_DELETE",
+      "_type": "request",
+      "parentId": "fld_CodeWritingQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/codewritingquestion/excluir/:id"
+    },
+    {
+      "_id": "fld_MultipleChoiceQuestion",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "MultipleChoiceQuestion"
+    },
+    {
+      "_id": "req_MultipleChoiceQuestion_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_MultipleChoiceQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/multiplechoicequestion/listar"
+    },
+    {
+      "_id": "req_MultipleChoiceQuestion_GET_ID",
+      "_type": "request",
+      "parentId": "fld_MultipleChoiceQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/multiplechoicequestion/buscar/:id"
+    },
+    {
+      "_id": "req_MultipleChoiceQuestion_POST",
+      "_type": "request",
+      "parentId": "fld_MultipleChoiceQuestion",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/multiplechoicequestion/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_MultipleChoiceQuestion_PUT",
+      "_type": "request",
+      "parentId": "fld_MultipleChoiceQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/multiplechoicequestion/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_MultipleChoiceQuestion_DELETE",
+      "_type": "request",
+      "parentId": "fld_MultipleChoiceQuestion",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/multiplechoicequestion/excluir/:id"
+    },
+    {
+      "_id": "fld_QuestionOption",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "QuestionOption"
+    },
+    {
+      "_id": "req_QuestionOption_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_QuestionOption",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/questionoption/listar"
+    },
+    {
+      "_id": "req_QuestionOption_GET_ID",
+      "_type": "request",
+      "parentId": "fld_QuestionOption",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/questionoption/buscar/:id"
+    },
+    {
+      "_id": "req_QuestionOption_POST",
+      "_type": "request",
+      "parentId": "fld_QuestionOption",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/questionoption/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"text\": \"string\",\n  \"isCorrect\": true,\n  \"order\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_QuestionOption_PUT",
+      "_type": "request",
+      "parentId": "fld_QuestionOption",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/questionoption/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"text\": \"string\",\n  \"isCorrect\": true,\n  \"order\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_QuestionOption_DELETE",
+      "_type": "request",
+      "parentId": "fld_QuestionOption",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/questionoption/excluir/:id"
+    },
+    {
+      "_id": "fld_Tag",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "Tag"
+    },
+    {
+      "_id": "req_Tag_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Tag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/tag/listar"
+    },
+    {
+      "_id": "req_Tag_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Tag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/tag/buscar/:id"
+    },
+    {
+      "_id": "req_Tag_POST",
+      "_type": "request",
+      "parentId": "fld_Tag",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/tag/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Tag_PUT",
+      "_type": "request",
+      "parentId": "fld_Tag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/tag/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_Tag_DELETE",
+      "_type": "request",
+      "parentId": "fld_Tag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/tag/excluir/:id"
+    },
+    {
+      "_id": "fld_QuestionTag",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "QuestionTag"
+    },
+    {
+      "_id": "req_QuestionTag_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_QuestionTag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/questiontag/listar"
+    },
+    {
+      "_id": "req_QuestionTag_GET_ID",
+      "_type": "request",
+      "parentId": "fld_QuestionTag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/questiontag/buscar/:id"
+    },
+    {
+      "_id": "req_QuestionTag_POST",
+      "_type": "request",
+      "parentId": "fld_QuestionTag",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/questiontag/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"tagId\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_QuestionTag_PUT",
+      "_type": "request",
+      "parentId": "fld_QuestionTag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/questiontag/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionId\": \"string\",\n  \"tagId\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_QuestionTag_DELETE",
+      "_type": "request",
+      "parentId": "fld_QuestionTag",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/questiontag/excluir/:id"
+    },
+    {
+      "_id": "fld_UserQuestionProgress",
+      "_type": "request_group",
+      "parentId": "fld_backend",
+      "name": "UserQuestionProgress"
+    },
+    {
+      "_id": "req_UserQuestionProgress_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_UserQuestionProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/userquestionprogress/listar"
+    },
+    {
+      "_id": "req_UserQuestionProgress_GET_ID",
+      "_type": "request",
+      "parentId": "fld_UserQuestionProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/userquestionprogress/buscar/:id"
+    },
+    {
+      "_id": "req_UserQuestionProgress_POST",
+      "_type": "request",
+      "parentId": "fld_UserQuestionProgress",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/userquestionprogress/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"userId\": \"string\",\n  \"questionId\": \"string\",\n  \"attempts\": 0,\n  \"solved\": true,\n  \"solvedAt\": \"2026-09-23T18:58:22.745Z\",\n  \"lastAttemptAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_UserQuestionProgress_PUT",
+      "_type": "request",
+      "parentId": "fld_UserQuestionProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/userquestionprogress/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"userId\": \"string\",\n  \"questionId\": \"string\",\n  \"attempts\": 0,\n  \"solved\": true,\n  \"solvedAt\": \"2026-09-23T18:58:22.745Z\",\n  \"lastAttemptAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+      }
+    },
+    {
+      "_id": "req_UserQuestionProgress_DELETE",
+      "_type": "request",
+      "parentId": "fld_UserQuestionProgress",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/userquestionprogress/excluir/:id"
+    }
+  ]
+}

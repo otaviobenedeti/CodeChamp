@@ -4,366 +4,488 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeChamp</title>
-  <link rel="stylesheet" href="styleaula.css">
 
+  <title>CodeChamp</title>
+
+  <link rel="stylesheet" href="styleaula.css">
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="logo">
-      <div class="logo-icon"><img src="./assets/logotrofeu.png" alt="logo"></div>
-      <div>
-        <div class="logo-text">CodeChamp</div>
-        <div class="logo-sub">Aprenda Programação com Desafios</div>
-      </div>
-    </div>
-    <div class="header-icons">
-      <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
-      <button class="icon-btn"><a href="perfil.html">👤</a></button>
-      <button class="icon-btn"><a href="home.html">🔙</a></button>
-    </div>
-  </header>
 
-  <div class="search-section">
-    <div class="search-wrap">
-      <div class="search-title">🎓 AULAS</div>
-      <div class="search-bar">
-        <div class="search-input-wrap">
-          <span>🔍</span>
-          <input class="search-input" type="text" id="searchInput"
-            placeholder="Pesquisar aulas... ex: JavaScript, Backend, Arrays..." oninput="filterLessons()">
+    <div class="logo">
+
+      <div class="logo-icon">
+        <img src="./assets/logotrofeu.png" alt="logo">
+      </div>
+
+      <div>
+        <div class="logo-text">
+          CodeChamp
+        </div>
+
+        <div class="logo-sub">
+          Aprenda Programação com Desafios
         </div>
       </div>
-      <div class="filter-tags">
-        <span class="tag all active" onclick="setFilter('all', this)">✨ Todas</span>
-        <span class="tag js" onclick="setFilter('javascript', this)">⚡ JavaScript</span>
-        <span class="tag front" onclick="setFilter('frontend', this)">🖥️ Frontend</span>
-        <span class="tag back" onclick="setFilter('backend', this)">🔧 Backend</span>
-        <span class="tag cpp" onclick="setFilter('cpp', this)">⚙️ C++</span>
-        <span class="tag python" onclick="setFilter('python', this)">🐍 Python</span>
-      </div>
+
     </div>
+
+
+    <div class="header-icons">
+
+      <button class="icon-btn">
+        <a href="aula.html">👩‍🏫</a>
+      </button>
+
+      <button class="icon-btn">
+        <a href="perfil.html">👤</a>
+      </button>
+
+      <button class="icon-btn">
+        <a href="home.html">🔙</a>
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- FILTROS -->
+  <div class="search-section">
+
+    <div class="search-wrap">
+
+      <div class="filter-tags">
+
+        <span class="tag all active" onclick="setFilter('all', this)">
+          ✨ Todas
+        </span>
+
+        <span class="tag js" onclick="setFilter('javascript', this)">
+          ⚡ JavaScript
+        </span>
+
+        <span class="tag front" onclick="setFilter('frontend', this)">
+          🖥️ Frontend
+        </span>
+
+        <span class="tag back" onclick="setFilter('backend', this)">
+          🔧 Backend
+        </span>
+
+        <span class="tag cpp" onclick="setFilter('cpp', this)">
+          ⚙️ C++
+        </span>
+
+        <span class="tag python" onclick="setFilter('python', this)">
+          🐍 Python
+        </span>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <!-- BODY -->
+
+  <!-- CONTEÚDO PRINCIPAL -->
   <div class="page-body">
 
-    <!-- VIDEO + COMMENTS -->
+
+    <!-- VÍDEO -->
     <div class="video-section">
 
       <div class="video-player-card">
+
+
+        <!-- PLAYER -->
         <div class="video-frame">
+
           <iframe id="mainVideo" src="" title=""
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+            allowfullscreen>
+          </iframe>
+
         </div>
+
+
+        <!-- INFORMAÇÕES -->
         <div class="video-info">
-          <div class="video-category cat-js" id="videoCat"></div>
-          <div class="video-title" id="videoTitle">CodeChamp</div>
-          <div class="video-meta">
+
+
+          <!-- CATEGORIA -->
+          <div class="video-category cat-js" id="videoCat">
           </div>
+
+
+          <!-- TÍTULO + EXCLUIR -->
+          <div class="video-title-row">
+
+            <div class="video-title" id="videoTitle">
+              CodeChamp
+            </div>
+
+
+            <button class="delete-video-btn" id="deleteVideoBtn" onclick="excluirAula()" title="Excluir vídeo">
+
+              🗑️
+
+            </button>
+
+          </div>
+
+
+          <!-- DESCRIÇÃO -->
+          <div class="video-description" id="videoDescription">
+          </div>
+
+
+          <div class="video-meta"></div>
+
+
+          <!-- AÇÕES -->
           <div class="video-actions">
-            <button class="action-btn">🔖 Salvar</button>
-            <a class="yt-link" id="ytLink" href="" target="_blank">▶ Ver no
-              YouTube</a>
+
+            <a class="yt-link" id="ytLink" href="" target="_blank">
+
+              ▶ Ver no YouTube
+
+            </a>
+
+
+            <button class="edit-video-btn" id="editVideoBtn" onclick="abrirEdicaoAula()">
+
+              ✏️ Editar
+
+            </button>
+
           </div>
+
+
         </div>
+
       </div>
+
     </div>
+
 
     <!-- PLAYLIST -->
     <div class="playlist-sidebar">
+
       <div class="playlist-card">
+
+
         <div class="playlist-header">
-          <div class="playlist-title">📚 PLAYLIST</div>
-          <div class="playlist-count" id="lessonCount">1</div>
+
+          <div class="playlist-title">
+            📚 PLAYLIST
+          </div>
+
+          <div class="playlist-count" id="lessonCount">
+
+            0
+
+          </div>
+
         </div>
-        <div class="lesson-list" id="lessonList"></div>
+
+
+        <div class="lesson-list" id="lessonList">
+        </div>
+
+
       </div>
+
     </div>
+
 
   </div>
 
-  <!-- BOTÃO FLUTUANTE PARA ADICIONAR VÍDEO -->
-  <button class="fab-add" onclick="openAddModal()" title="Adicionar vídeo"><span>+</span></button>
 
-  <!-- MODAL: ADICIONAR VÍDEO -->
+  <!-- BOTÃO ADICIONAR -->
+  <button class="fab-add" onclick="openAddModal()" title="Adicionar vídeo">
+
+    <span>+</span>
+
+  </button>
+
+
+  <!-- MODAL ADICIONAR -->
   <div class="modal-overlay" id="addModal">
+
+
     <div class="modal-card">
+
+
       <div class="modal-header">
-        <div class="modal-title">➕ ADICIONAR VÍDEO</div>
-        <button class="modal-close" onclick="closeAddModal()">✕</button>
+
+        <div class="modal-title">
+          ➕ ADICIONAR VÍDEO
+        </div>
+
+
+        <button class="modal-close" onclick="closeAddModal()">
+
+          ✕
+
+        </button>
+
       </div>
+
+
       <div class="modal-body">
+
+
+        <!-- NOME -->
         <div class="field-group">
-          <label class="field-label" for="newVideoName">Nome do vídeo</label>
+
+          <label class="field-label" for="newVideoName">
+
+            Nome do vídeo
+
+          </label>
+
+
           <input class="field-input" type="text" id="newVideoName" placeholder="Ex: Introdução a Arrays em JS">
+
         </div>
+
+
+        <!-- DESCRIÇÃO -->
         <div class="field-group">
-          <label class="field-label" for="newVideoUrl">URL do YouTube</label>
+
+          <label class="field-label" for="newVideoDescription">
+
+            Descrição
+
+          </label>
+
+
+          <textarea class="field-input" id="newVideoDescription" placeholder="Digite uma descrição para esta aula..."
+            rows="4">
+          </textarea>
+
+        </div>
+
+
+        <!-- URL -->
+        <div class="field-group">
+
+          <label class="field-label" for="newVideoUrl">
+
+            URL do YouTube
+
+          </label>
+
+
           <input class="field-input" type="text" id="newVideoUrl" placeholder="https://www.youtube.com/watch?v=...">
-          <span class="field-hint">Aceita links do tipo youtube.com/watch?v=, youtu.be/ ou embed/</span>
+
+
+          <span class="field-hint">
+
+            Aceita links do tipo youtube.com/watch?v=,
+            youtu.be/ ou embed/
+
+          </span>
+
         </div>
+
+
+        <!-- LINGUAGEM -->
         <div class="field-group">
-          <label class="field-label" for="newVideoLang">Linguagem / Categoria</label>
+
+          <label class="field-label" for="newVideoLang">
+
+            Linguagem / Categoria
+
+          </label>
+
+
           <select class="field-select" id="newVideoLang">
-            <option value="javascript">⚡ JavaScript</option>
-            <option value="frontend">🖥️ Frontend</option>
-            <option value="backend">🔧 Backend</option>
-            <option value="cpp">⚙️ C++</option>
-            <option value="python">🐍 Python</option>
+
+            <option value="javascript">
+              ⚡ JavaScript
+            </option>
+
+            <option value="frontend">
+              🖥️ Frontend
+            </option>
+
+            <option value="backend">
+              🔧 Backend
+            </option>
+
+            <option value="cpp">
+              ⚙️ C++
+            </option>
+
+            <option value="python">
+              🐍 Python
+            </option>
+
           </select>
+
         </div>
-        <span class="field-error" id="modalError">Preencha o nome e um link válido do YouTube.</span>
-        <button class="modal-submit" onclick="submitNewVideo()">ADICIONAR À PLAYLIST</button>
+
+
+        <!-- ERRO -->
+        <span class="field-error" id="modalError">
+        </span>
+
+
+        <!-- BOTÃO -->
+        <button class="modal-submit" onclick="submitNewVideo()">
+
+          ADICIONAR À PLAYLIST
+
+        </button>
+
+
       </div>
+
     </div>
+
   </div>
 
-  <div class="toast" id="toast">✅ Vídeo adicionado!</div>
 
-  <script>
-    const categoryMeta = {
-      javascript: { catLabel: "⚡ JavaScript", catClass: "cat-js", dotColor: "#FFD700" },
-      frontend: { catLabel: "🖥️ Frontend", catClass: "cat-front", dotColor: "#4B8CFF" },
-      backend: { catLabel: "🔧 Backend", catClass: "cat-back", dotColor: "#3DFF7A" },
-      cpp: { catLabel: "⚙️ C++", catClass: "cat-cpp", dotColor: "#FF3B6B" },
-      python: { catLabel: "🐍 Python", catClass: "cat-python", dotColor: "#56B4D3" }
-    };
+  <!-- MODAL EDITAR -->
+  <div class="modal-overlay" id="editModal">
 
-    const STORAGE_KEY = 'codechamp_custom_lessons';
 
-    function loadCustomLessons() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch (e) {
-        console.error('Erro ao ler vídeos salvos:', e);
-        return [];
-      }
-    }
+    <div class="modal-card">
 
-    function saveCustomLessons() {
-      const custom = lessons.filter(l => l.custom);
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(custom));
-      } catch (e) {
-        console.error('Erro ao salvar vídeo:', e);
-      }
-    }
 
-    // Extrai o ID do vídeo a partir de vários formatos de URL do YouTube
-    function extractYouTubeId(url) {
-      if (!url) return null;
-      const patterns = [
-        /(?:youtube\.com\/watch\?v=)([\w-]{11})/,
-        /(?:youtu\.be\/)([\w-]{11})/,
-        /(?:youtube\.com\/embed\/)([\w-]{11})/,
-        /(?:youtube\.com\/shorts\/)([\w-]{11})/
-      ];
-      for (const p of patterns) {
-        const m = url.match(p);
-        if (m) return m[1];
-      }
-      return null;
-    }
+      <div class="modal-header">
 
-    function openAddModal() {
-      document.getElementById('addModal').classList.add('open');
-      document.getElementById('modalError').classList.remove('show');
-    }
-
-    function closeAddModal() {
-      document.getElementById('addModal').classList.remove('open');
-      document.getElementById('newVideoName').value = '';
-      document.getElementById('newVideoUrl').value = '';
-      document.getElementById('newVideoLang').selectedIndex = 0;
-    }
-
-    function showToast(msg) {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2200);
-    }
-
-    function submitNewVideo() {
-      const nameInput = document.getElementById('newVideoName');
-      const urlInput = document.getElementById('newVideoUrl');
-      const langSelect = document.getElementById('newVideoLang');
-      const errorEl = document.getElementById('modalError');
-
-      const name = nameInput.value.trim();
-      const url = urlInput.value.trim();
-      const lang = langSelect.value;
-      const embedId = extractYouTubeId(url);
-
-      if (!name || !embedId) {
-        errorEl.classList.add('show');
-        return;
-      }
-      errorEl.classList.remove('show');
-
-      const meta = categoryMeta[lang];
-      const newId = lessons.length ? Math.max(...lessons.map(l => l.id)) + 1 : 0;
-
-      const newLesson = {
-        id: newId,
-        title: name,
-        category: lang,
-        catLabel: meta.catLabel,
-        catClass: meta.catClass,
-        dotColor: meta.dotColor,
-        duration: "—",
-        level: "Comunidade",
-        views: "0",
-        embedId: embedId,
-        ytUrl: url,
-        custom: true
-      };
-
-      lessons.push(newLesson);
-      saveCustomLessons();
-      closeAddModal();
-      showToast('✅ Vídeo adicionado à playlist!');
-      loadLesson(newId);
-    }
-
-    function removeCustomLesson(id, evt) {
-      evt.stopPropagation();
-      const idx = lessons.findIndex(l => l.id === id);
-      if (idx === -1) return;
-      lessons.splice(idx, 1);
-      saveCustomLessons();
-      if (activeLesson === id) {
-        activeLesson = lessons.length ? lessons[0].id : null;
-        if (activeLesson !== null) loadLesson(activeLesson);
-      }
-      renderPlaylist(getFiltered());
-    }
-
-    let activeFilter = 'all';
-    let activeLesson = 0;
-
-    function renderPlaylist(filtered) {
-      const list = document.getElementById('lessonList');
-      list.innerHTML = '';
-      const toShow = filtered !== undefined ? filtered : lessons;
-      document.getElementById('lessonCount').textContent = toShow.length;
-
-      toShow.forEach((l, idx) => {
-        const div = document.createElement('div');
-        div.className = 'lesson-item' + (l.id === activeLesson ? ' active' : '') + (l.custom ? ' custom' : '');
-        div.onclick = () => loadLesson(l.id);
-        div.innerHTML = `
-          <div class="lesson-thumb">
-            <img src="https://img.youtube.com/vi/${l.embedId}/mqdefault.jpg" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="play-overlay">${l.id === activeLesson ? '▶' : '▷'}</div>
-            <div class="lesson-num">${idx + 1}</div>
-          </div>
-          <div class="lesson-info">
-            <div class="lesson-name">${l.title}</div>
-            <div class="lesson-meta">
-              <div class="lesson-cat-dot" style="background:${l.dotColor}"></div>
-              <span class="lesson-dur">⏱️ ${l.duration}</span>
-              <span class="lesson-dur">⭐ ${l.level}</span>
-            </div>
-          </div>
-          ${l.custom ? `<span class="custom-badge">VOCÊ</span><button class="lesson-remove" onclick="removeCustomLesson(${l.id}, event)" title="Remover">🗑️</button>` : ''}
-        `;
-        list.appendChild(div);
-      });
-    }
-
-    function loadLesson(id) {
-      activeLesson = id;
-      const l = lessons[id];
-      document.getElementById('mainVideo').src = `https://www.youtube.com/embed/${l.embedId}?autoplay=1&rel=0`;
-      document.getElementById('videoTitle').textContent = l.title;
-      document.getElementById('videoCat').textContent = l.catLabel;
-      document.getElementById('videoCat').className = 'video-category ' + l.catClass;
-      document.getElementById('videoViews').textContent = l.views + ' visualizações';
-      document.getElementById('videoDur').textContent = l.duration;
-      document.getElementById('videoLevel').textContent = l.level;
-      document.getElementById('ytLink').href = l.ytUrl;
-      document.getElementById('likeBtn').classList.remove('liked');
-      updateProgress();
-      renderPlaylist(getFiltered());
-    }
-
-    function toggleLike() {
-      document.getElementById('likeBtn').classList.toggle('liked');
-    }
-
-    function setFilter(filter, el) {
-      activeFilter = filter;
-      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-      renderPlaylist(getFiltered());
-    }
-
-    function getFiltered() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      return lessons.filter(l => {
-        const matchCat = activeFilter === 'all' || l.category === activeFilter;
-        const matchQ = !q || l.title.toLowerCase().includes(q) || l.category.includes(q);
-        return matchCat && matchQ;
-      });
-    }
-
-    function filterLessons() {
-      renderPlaylist(getFiltered());
-    }
-
-    function updateProgress() {
-      const total = lessons.length;
-      const posIdx = lessons.findIndex(l => l.id === activeLesson);
-      const done = posIdx === -1 ? 1 : posIdx + 1;
-      document.getElementById('progPct').textContent = `${done} / ${total} aulas`;
-      document.getElementById('progFill').style.width = `${(done / total) * 100}%`;
-    }
-
-    function postComment() {
-      const input = document.getElementById('commentInput');
-      const text = input.value.trim();
-      if (!text) return;
-      const list = document.getElementById('commentList');
-      const div = document.createElement('div');
-      div.className = 'comment-item';
-      div.innerHTML = `
-        <div class="c-avatar">😎</div>
-        <div class="c-body">
-          <div class="c-header">
-            <span class="c-name">miguel_gerbi</span>
-            <span class="c-time">agora mesmo</span>
-          </div>
-          <div class="c-text">${text}</div>
-          <button class="c-like" onclick="this.style.color='var(--gold)'">👍 0</button>
+        <div class="modal-title">
+          ✏️ EDITAR VÍDEO
         </div>
-      `;
-      list.prepend(div);
-      input.value = '';
-      input.style.height = '42px';
-    }
 
-    // init — carrega vídeos salvos pelo usuário e junta com a playlist base
-    const savedCustom = loadCustomLessons();
-    savedCustom.forEach(l => lessons.push(l));
 
-    renderPlaylist();
-    updateProgress();
+        <button class="modal-close" onclick="fecharEdicaoAula()">
 
-    // fecha o modal clicando fora do card ou com a tecla ESC
-    document.getElementById('addModal').addEventListener('click', (e) => {
-      if (e.target.id === 'addModal') closeAddModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAddModal();
-    });
-  </script>
+          ✕
+
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+        <!-- NOME -->
+        <div class="field-group">
+
+          <label class="field-label" for="editVideoName">
+
+            Nome do vídeo
+
+          </label>
+
+
+          <input class="field-input" type="text" id="editVideoName" placeholder="Nome da aula">
+
+        </div>
+
+
+        <!-- DESCRIÇÃO -->
+        <div class="field-group">
+
+          <label class="field-label" for="editVideoDescription">Descrição</label>
+
+
+          <textarea class="field-input" id="editVideoDescription" placeholder="Digite uma descrição..." rows="4">
+          </textarea>
+
+        </div>
+
+
+        <!-- URL -->
+        <div class="field-group">
+
+          <label class="field-label" for="editVideoUrl">
+
+            URL do YouTube
+
+          </label>
+
+
+          <input class="field-input" type="text" id="editVideoUrl" placeholder="https://www.youtube.com/watch?v=...">
+
+        </div>
+
+
+        <!-- LINGUAGEM -->
+        <div class="field-group">
+
+          <label class="field-label" for="editVideoLang">
+
+            Linguagem / Categoria
+
+          </label>
+
+
+          <select class="field-select" id="editVideoLang">
+
+            <option value="javascript">
+              ⚡ JavaScript
+            </option>
+
+            <option value="frontend">
+              🖥️ Frontend
+            </option>
+
+            <option value="backend">
+              🔧 Backend
+            </option>
+
+            <option value="cpp">
+              ⚙️ C++
+            </option>
+
+            <option value="python">
+              🐍 Python
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- ERRO -->
+        <span class="field-error" id="editModalError">
+        </span>
+
+
+        <!-- SALVAR -->
+        <button class="modal-submit" onclick="salvarEdicaoAula()">
+
+          SALVAR ALTERAÇÕES
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+
+    ✅ Vídeo adicionado!
+
+  </div>
+
+
+  <script src="aula.js"></script>
 
 </body>
 
-</html> 
+</html>

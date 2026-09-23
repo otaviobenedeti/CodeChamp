@@ -1004,6 +1004,45 @@ header {
     transform: none;
 }
 
+.video-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.delete-video-btn {
+  border: none;
+  background: transparent;
+  color: #ff3b6b;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.delete-video-btn:hover {
+  background: rgba(255, 59, 107, 0.15);
+  transform: scale(1.15);
+}
+
+.edit-video-btn {
+    border: none;
+    background: #6a0dad;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.edit-video-btn:hover {
+    background: #8b2be2;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 720px) {
     .fab-add {
         right: 20px;
