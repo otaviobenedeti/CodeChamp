@@ -7,7 +7,7 @@ const {
     listar, 
     buscar, 
     atualizar, 
-    excluir } = require("../controllers/usuario.controller");
+    excluir } = require("../controllers/questionoption.controller");
 
 router.post("/cadastrar", cadastrar);
 router.get("/listar", listar);

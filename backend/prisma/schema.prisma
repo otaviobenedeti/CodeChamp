@@ -7,7 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 // ==============================
 // ENUMS
 // ==============================
@@ -47,7 +46,6 @@ enum Theme {
   SYSTEM
 }
 
-
 // ==============================
 // USER
 // ==============================
@@ -72,7 +70,6 @@ model User {
   @@map("users")
 }
 
-
 // ==============================
 // USER PREFERENCES
 // ==============================
@@ -88,15 +85,14 @@ model UserPreferences {
   @@map("user_preferences")
 }
 
-
 // ==============================
 // LESSON
 // ==============================
 
 model Lesson {
-  id          String       @id @default(cuid())
+  id          String  @id @default(cuid())
   title       String
-  slug        String       @unique
+  language    String
   description String?
   youtubeUrl  String
 
@@ -111,10 +107,8 @@ model Lesson {
 
   @@index([status])
   @@index([order])
-
   @@map("lessons")
 }
-
 
 // ==============================
 // USER LESSON PROGRESS
@@ -136,19 +130,17 @@ model UserLessonProgress {
   @@unique([userId, lessonId])
   @@index([userId])
   @@index([lessonId])
-
   @@map("user_lesson_progress")
 }
-
 
 // ==============================
 // QUESTION
 // ==============================
 
 model Question {
-  id          String         @id @default(cuid())
+  id          String @id @default(cuid())
   title       String
-  slug        String         @unique
+  slug        String @unique
   description String
 
   type       QuestionType
@@ -171,10 +163,8 @@ model Question {
   @@index([type])
   @@index([difficulty])
   @@index([status])
-
   @@map("questions")
 }
-
 
 // ==============================
 // BUG FINDING QUESTION
@@ -187,12 +177,11 @@ model BugFindingQuestion {
   code        String
   errorLine   Int
   explanation String?
-  
+
   question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@map("bug_finding_questions")
 }
-
 
 // ==============================
 // CODE WRITING QUESTION
@@ -211,7 +200,6 @@ model CodeWritingQuestion {
   @@map("code_writing_questions")
 }
 
-
 // ==============================
 // MULTIPLE CHOICE QUESTION
 // ==============================
@@ -220,13 +208,12 @@ model MultipleChoiceQuestion {
   id         String @id @default(cuid())
   questionId String @unique
 
-  question Question @relation(fields: [questionId],references: [id],onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   options QuestionOption[]
 
   @@map("multiple_choice_questions")
 }
-
 
 // ==============================
 // QUESTION OPTION
@@ -240,13 +227,11 @@ model QuestionOption {
   isCorrect Boolean @default(false)
   order     Int     @default(0)
 
-  question MultipleChoiceQuestion @relation(fields: [questionId],references: [id], onDelete: Cascade)
+  question MultipleChoiceQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@index([questionId])
-
   @@map("question_options")
 }
-
 
 // ==============================
 // TAG
@@ -263,7 +248,6 @@ model Tag {
   @@map("tags")
 }
 
-
 // ==============================
 // QUESTION TAG
 // ==============================
@@ -272,15 +256,13 @@ model QuestionTag {
   questionId String
   tagId      String
 
-  question Question @relation(fields: [questionId],references: [id],onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
-  tag Tag @relation(fields: [tagId],references: [id],onDelete: Cascade)
+  tag Tag @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   @@id([questionId, tagId])
-
   @@map("question_tags")
 }
-
 
 // ==============================
 // USER QUESTION PROGRESS
@@ -297,13 +279,12 @@ model UserQuestionProgress {
   solvedAt      DateTime?
   lastAttemptAt DateTime?
 
-  user User @relation(fields: [userId],references: [id],onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  question Question @relation(fields: [questionId],references: [id],onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([userId, questionId])
   @@index([userId])
   @@index([questionId])
-
   @@map("user_question_progress")
 }

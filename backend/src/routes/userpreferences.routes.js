@@ -7,7 +7,7 @@ const {
     listar, 
     buscar, 
     atualizar, 
-    excluir } = require("../controllers/achievement.controller");
+    excluir } = require("../controllers/userpreferences.controller");
 
 router.post("/cadastrar", cadastrar);
 router.get("/listar", listar);
