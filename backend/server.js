@@ -54,7 +54,14 @@ app.use("/lesson", lessonRoutes);
 
 app.use("/userpreferences", userpreferencesRoutes);
 
+<<<<<<< HEAD
+const authRoutes = require("./routes/auth.routes");
+
+app.use("/auth", authRoutes);
+
+=======
 app.use("/user", userRoutes);
+>>>>>>> 4c1e9a9475e3f365fa9321720676129c59bd3f3c
 
 const PORT = process.env.PORT || 3000;
 
