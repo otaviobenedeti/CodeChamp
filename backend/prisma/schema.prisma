@@ -3,12 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
 }
-
-// ==============================
-// ENUMS
-// ==============================
 
 enum UserRole {
   USER
@@ -45,10 +41,6 @@ enum Theme {
   SYSTEM
 }
 
-// ==============================
-// USER
-// ==============================
-
 model User {
   id        String   @id @default(cuid())
   name      String
@@ -69,10 +61,6 @@ model User {
   @@map("users")
 }
 
-// ==============================
-// USER PREFERENCES
-// ==============================
-
 model UserPreferences {
   id     String @id @default(cuid())
   userId String @unique
@@ -83,10 +71,6 @@ model UserPreferences {
 
   @@map("user_preferences")
 }
-
-// ==============================
-// LESSON
-// ==============================
 
 model Lesson {
   id          String  @id @default(cuid())
@@ -109,10 +93,6 @@ model Lesson {
   @@map("lessons")
 }
 
-// ==============================
-// USER LESSON PROGRESS
-// ==============================
-
 model UserLessonProgress {
   id       String @id @default(cuid())
   userId   String
@@ -131,10 +111,6 @@ model UserLessonProgress {
   @@index([lessonId])
   @@map("user_lesson_progress")
 }
-
-// ==============================
-// QUESTION
-// ==============================
 
 model Question {
   id          String @id @default(cuid())
@@ -165,10 +141,6 @@ model Question {
   @@map("questions")
 }
 
-// ==============================
-// BUG FINDING QUESTION
-// ==============================
-
 model BugFindingQuestion {
   id         String @id @default(cuid())
   questionId String @unique
@@ -181,10 +153,6 @@ model BugFindingQuestion {
 
   @@map("bug_finding_questions")
 }
-
-// ==============================
-// CODE WRITING QUESTION
-// ==============================
 
 model CodeWritingQuestion {
   id         String @id @default(cuid())
@@ -199,10 +167,6 @@ model CodeWritingQuestion {
   @@map("code_writing_questions")
 }
 
-// ==============================
-// MULTIPLE CHOICE QUESTION
-// ==============================
-
 model MultipleChoiceQuestion {
   id         String @id @default(cuid())
   questionId String @unique
@@ -213,10 +177,6 @@ model MultipleChoiceQuestion {
 
   @@map("multiple_choice_questions")
 }
-
-// ==============================
-// QUESTION OPTION
-// ==============================
 
 model QuestionOption {
   id         String @id @default(cuid())
@@ -232,10 +192,6 @@ model QuestionOption {
   @@map("question_options")
 }
 
-// ==============================
-// TAG
-// ==============================
-
 model Tag {
   id        String   @id @default(cuid())
   name      String
@@ -246,10 +202,6 @@ model Tag {
 
   @@map("tags")
 }
-
-// ==============================
-// QUESTION TAG
-// ==============================
 
 model QuestionTag {
   questionId String
@@ -262,10 +214,6 @@ model QuestionTag {
   @@id([questionId, tagId])
   @@map("question_tags")
 }
-
-// ==============================
-// USER QUESTION PROGRESS
-// ==============================
 
 model UserQuestionProgress {
   id         String @id @default(cuid())

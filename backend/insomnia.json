@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2026-09-23T18:58:22.745Z",
+  "__export_date": "2026-09-30T11:45:39.766Z",
   "__export_source": "backend-aula",
   "resources": [
     {
@@ -64,7 +64,7 @@
       "url": "http://localhost:3000/user/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.732Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"createdAt\": \"2026-09-30T11:45:39.764Z\",\n  \"updatedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -82,7 +82,7 @@
       "url": "http://localhost:3000/user/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.732Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"createdAt\": \"2026-09-30T11:45:39.764Z\",\n  \"updatedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -232,7 +232,7 @@
       "url": "http://localhost:3000/lesson/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"title\": \"string\",\n  \"language\": \"string\",\n  \"description\": \"string\",\n  \"youtubeUrl\": \"string\",\n  \"order\": 0,\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"title\": \"string\",\n  \"language\": \"string\",\n  \"description\": \"string\",\n  \"youtubeUrl\": \"string\",\n  \"order\": 0,\n  \"createdAt\": \"2026-09-30T11:45:39.766Z\",\n  \"updatedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -250,7 +250,7 @@
       "url": "http://localhost:3000/lesson/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"title\": \"string\",\n  \"language\": \"string\",\n  \"description\": \"string\",\n  \"youtubeUrl\": \"string\",\n  \"order\": 0,\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"title\": \"string\",\n  \"language\": \"string\",\n  \"description\": \"string\",\n  \"youtubeUrl\": \"string\",\n  \"order\": 0,\n  \"createdAt\": \"2026-09-30T11:45:39.766Z\",\n  \"updatedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -316,7 +316,7 @@
       "url": "http://localhost:3000/userlessonprogress/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"userId\": \"string\",\n  \"lessonId\": \"string\",\n  \"completed\": true,\n  \"watchedAt\": \"2026-09-23T18:58:22.744Z\",\n  \"completedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"userId\": \"string\",\n  \"lessonId\": \"string\",\n  \"completed\": true,\n  \"watchedAt\": \"2026-09-30T11:45:39.766Z\",\n  \"completedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -334,7 +334,7 @@
       "url": "http://localhost:3000/userlessonprogress/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"userId\": \"string\",\n  \"lessonId\": \"string\",\n  \"completed\": true,\n  \"watchedAt\": \"2026-09-23T18:58:22.744Z\",\n  \"completedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"userId\": \"string\",\n  \"lessonId\": \"string\",\n  \"completed\": true,\n  \"watchedAt\": \"2026-09-30T11:45:39.766Z\",\n  \"completedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -400,7 +400,7 @@
       "url": "http://localhost:3000/question/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"description\": \"string\",\n  \"language\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"description\": \"string\",\n  \"language\": \"string\",\n  \"createdAt\": \"2026-09-30T11:45:39.766Z\",\n  \"updatedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -418,7 +418,7 @@
       "url": "http://localhost:3000/question/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"description\": \"string\",\n  \"language\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.744Z\",\n  \"updatedAt\": \"2026-09-23T18:58:22.744Z\"\n}"
+        "text": "{\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"description\": \"string\",\n  \"language\": \"string\",\n  \"createdAt\": \"2026-09-30T11:45:39.766Z\",\n  \"updatedAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -820,7 +820,7 @@
       "url": "http://localhost:3000/tag/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"createdAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -838,7 +838,7 @@
       "url": "http://localhost:3000/tag/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"createdAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+        "text": "{\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"createdAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -988,7 +988,7 @@
       "url": "http://localhost:3000/userquestionprogress/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"userId\": \"string\",\n  \"questionId\": \"string\",\n  \"attempts\": 0,\n  \"solved\": true,\n  \"solvedAt\": \"2026-09-23T18:58:22.745Z\",\n  \"lastAttemptAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+        "text": "{\n  \"userId\": \"string\",\n  \"questionId\": \"string\",\n  \"attempts\": 0,\n  \"solved\": true,\n  \"solvedAt\": \"2026-09-30T11:45:39.766Z\",\n  \"lastAttemptAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {
@@ -1006,7 +1006,7 @@
       "url": "http://localhost:3000/userquestionprogress/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"userId\": \"string\",\n  \"questionId\": \"string\",\n  \"attempts\": 0,\n  \"solved\": true,\n  \"solvedAt\": \"2026-09-23T18:58:22.745Z\",\n  \"lastAttemptAt\": \"2026-09-23T18:58:22.745Z\"\n}"
+        "text": "{\n  \"userId\": \"string\",\n  \"questionId\": \"string\",\n  \"attempts\": 0,\n  \"solved\": true,\n  \"solvedAt\": \"2026-09-30T11:45:39.766Z\",\n  \"lastAttemptAt\": \"2026-09-30T11:45:39.766Z\"\n}"
       }
     },
     {

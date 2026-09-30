@@ -54,7 +54,9 @@ app.use("/lesson", lessonRoutes);
 
 app.use("/userpreferences", userpreferencesRoutes);
 
-const authRoutes = require("./routes/auth.routes");
+app.use("/user", userRoutes)
+
+const authRoutes = require("./src/routes/auth.routes");
 
 app.use("/auth", authRoutes);
 
