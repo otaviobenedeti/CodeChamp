@@ -56,11 +56,6 @@ O cadastro permite registrar informações como:
 
 Após realizar o cadastro, o usuário pode acessar a plataforma utilizando suas credenciais.
 
-### 📷 Login e Cadastro
-
-![Login](assets/login)
-![Login](assets/cadastro)
-
 # 🏠 Home
 
 A página inicial apresenta os principais recursos disponíveis no CodeChamp.
@@ -75,12 +70,6 @@ A interface foi desenvolvida com uma identidade visual baseada principalmente em
 * ⚪ Tons claros para textos
 
 O objetivo é criar uma aparência moderna e relacionada ao universo de programação e competição.
-
-### 📷 Home
-
-> **Adicione aqui uma imagem da página inicial.**
-
-[ Coloque sua imagem aqui ]
 
 # 📚 Aulas
 
@@ -108,10 +97,6 @@ As videoaulas são integradas através de links do YouTube.
 
 O sistema também possui recursos para pesquisar e filtrar as aulas por categoria.
 
-### 📷 Página de Aulas
-
-[ Coloque sua imagem aqui ]
-
 # 👤 Perfil
 
 O perfil permite que o usuário visualize e gerencie suas informações dentro da plataforma.
@@ -126,10 +111,6 @@ Entre as informações utilizadas estão:
 * Preferências do usuário
 
 O sistema também foi planejado para trabalhar com informações relacionadas ao progresso do estudante.
-
-### 📷 Perfil
-
-[ Coloque sua imagem aqui ]
 
 # 🎮 Modos de Jogo
 
@@ -341,9 +322,15 @@ A interface também utiliza a fonte **Rajdhani**, proporcionando uma aparência 
 
 # 🖼️ Screenshots
 
-## 🔐 Login e Cadastro
+## 🔐 Login
 
-![Login e Cadastro](assets/screenshots/login-cadastro.png)
+![Login](./Site/Front/assets/login.png)
+
+---
+
+## 🔐 Cadastro
+
+![Cadastro](./Site/Front/assets/cadastro.png)
 
 ---
 
