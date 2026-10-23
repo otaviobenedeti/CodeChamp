@@ -1,0 +1,41 @@
+/* Extras do Modo Maratona. Carregue DEPOIS de stylecodepuzzle.css */
+.editor {
+    height: 440px
+}
+
+.selo.tam {
+    background: #2a6f97
+}
+
+.selo.n1 {
+    background: #1f9d55
+}
+
+.selo.n2 {
+    background: #d97706
+}
+
+.selo.n3 {
+    background: #c0263f
+}
+
+.req {
+    margin: .2rem 0 0 1.1rem;
+    line-height: 1.5;
+    font-size: .92rem
+}
+
+.req li {
+    margin-bottom: .2rem
+}
+
+.ajuda {
+    opacity: .7;
+    font-size: .8rem
+}
+
+@media(max-width:860px) {
+    .editor {
+        height: 340px
+    }
+}

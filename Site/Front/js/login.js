@@ -31,7 +31,7 @@ if (formLogin) {
             try {
 
                 const resposta = await fetch(
-                    "http://localhost:3000/user/login",
+                    "http://localhost:3000/auth/login",
                     {
                         method: "POST",
 
@@ -64,6 +64,7 @@ if (formLogin) {
                     "usuario",
                     JSON.stringify(dados.user)
                 );
+                localStorage.setItem("token", dados.token);
 
                 alert(
                     "Login realizado com sucesso!"

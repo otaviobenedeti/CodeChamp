@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="../css/styleperfil.css">
 </head>
 
-<body>
-
-    <!-- ================= HEADER ================= -->
+<body data-auth-required>
+    <script src="../js/auth.js"></script>
 
     <header>
 
@@ -347,7 +346,7 @@
                         <span
                             class="language-icon javascript-icon"
                         >
-                            JS
+                            🟨
                         </span>
 
                         <span>
@@ -371,7 +370,7 @@
                         <span
                             class="language-icon python-icon"
                         >
-                            PY
+                            🐍
                         </span>
 
                         <span>
@@ -419,7 +418,7 @@
                         <span
                             class="language-icon cpp-icon"
                         >
-                            C++
+                            ⚙️
                         </span>
 
                         <span>
@@ -428,6 +427,22 @@
 
                     </label>
 
+                
+                    <label class="language-option">
+                        <input type="checkbox" name="linguagem" value="C#">
+                        <span class="language-icon" aria-hidden="true">🎯</span>
+                        <span>C#</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="checkbox" name="linguagem" value="TypeScript">
+                        <span class="language-icon" aria-hidden="true">🔷</span>
+                        <span>TypeScript</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="checkbox" name="linguagem" value="SQL">
+                        <span class="language-icon" aria-hidden="true">🗄️</span>
+                        <span>SQL</span>
+                    </label>
                 </div>
 
 
@@ -453,6 +468,29 @@
 
             </div>
 
+            <div class="section-card language-settings-card">
+                <div class="card-title">Idioma do site</div>
+                <p class="language-description">Escolha o idioma da interface. A preferência será usada nas outras páginas.</p>
+                <div class="language-settings-row">
+                    <label for="idiomaSite">Idioma</label>
+                    <select id="idiomaSite" class="language-select">
+                        <option value="pt">Português (BR)</option>
+                        <option value="pt-PT">Português (Portugal)</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="ja">日本語</option>
+                        <option value="ru">Русский</option>
+                        <option value="zh">中文（简体）</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="ar">العربية</option>
+                        <option value="bn">বাংলা</option>
+                        <option value="ur">اردو</option>
+                    </select>
+                </div>
+                <button class="save-languages" id="aplicarIdioma" type="button">Aplicar idioma</button>
+            </div>
+
         </main>
 
     </div>
@@ -461,6 +499,7 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script src="../js/perfil.js"></script>
+    <script src="../js/i18n.js"></script>
 
 </body>
 

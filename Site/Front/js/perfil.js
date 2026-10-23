@@ -105,8 +105,11 @@ function carregarDadosUsuario() {
 
     if (elementoNome) {
 
-        elementoNome.textContent =
-            `Olá, ${nome}! 👋`;
+        if (window.setProfileGreeting) {
+            window.setProfileGreeting(nome);
+        } else {
+            elementoNome.textContent = `Olá, ${nome}! 👋`;
+        }
 
     }
 

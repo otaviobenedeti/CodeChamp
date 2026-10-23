@@ -1,92 +1,76 @@
-const formCadastro =
-  document.getElementById("formCadastro");
-
+const formCadastro = document.getElementById("formCadastro");
 
 if (formCadastro) {
+    formCadastro.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-  formCadastro.addEventListener(
-    "submit",
-    async (event) => {
+        const nome = document.getElementById("nome").value.trim();
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const avatarUrl = document.getElementById("avatarUrl").value.trim();
+        const senha = document.getElementById("senha").value;
 
-      event.preventDefault();
-
-      const nome =
-        document
-          .getElementById("nome")
-          .value
-          .trim();
-
-      const username =
-        document
-          .getElementById("username")
-          .value
-          .trim();
-
-      const email =
-        document
-          .getElementById("email")
-          .value
-          .trim();
-
-      const senha =
-        document
-          .getElementById("senha")
-          .value;
-
-      if (!nome || !username || !email || !senha) {
-        alert("Preencha todos os campos obrigatórios.");
-        return;
-      }
-
-      try {
-
-        const resposta = await fetch(
-          "http://localhost:3000/user/cadastrar",
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
-
-            body: JSON.stringify({
-              name: nome,
-              username: username,
-              email: email,
-              password: senha
-            })
-          }
-        );
-
-        const dados =
-          await resposta.json();
-
-        if (!resposta.ok) {
-
-          alert(
-            dados.erro ||
-            "Erro ao realizar cadastro."
-          );
-
-          return;
+        if (!nome || !username || !email || !senha) {
+            alert("Preencha todos os campos obrigatórios.");
+            return;
         }
 
-        alert(
-          "Cadastro realizado com sucesso!"
-        );
+        console.log("Iniciando cadastro...");
+        console.log("Nome:", nome);
+        console.log("Username:", username);
+        console.log("Email:", email);
 
-        window.location.href =
-          "login.html";
+        try {
+            const resposta = await fetch("http://localhost:3000/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: nome,
+                    username: username,
+                    email: email,
+                    avatarUrl: avatarUrl || null,
+                    password: senha
+                })
+            });
 
-      } catch (erro) {
+            const texto = await resposta.text();
 
-        console.error(erro);
+            console.log("Status HTTP:", resposta.status);
+            console.log("Resposta do servidor:", texto);
 
-        alert(
-          "Não foi possível conectar ao servidor."
-        );
-      }
-    }
-  );
+            let dados = {};
+
+            if (texto.trim()) {
+                try {
+                    dados = JSON.parse(texto);
+                } catch (erro) {
+                    console.error("Erro ao interpretar JSON:", erro);
+                    alert("O servidor retornou uma resposta inválida.");
+                    return;
+                }
+            }
+
+            if (!resposta.ok) {
+                alert(
+                    dados.erro ||
+                    dados.message ||
+                    "Erro ao realizar cadastro."
+                );
+                return;
+            }
+
+            alert("Cadastro realizado com sucesso!");
+
+            window.location.href = "login.html";
+
+        } catch (erro) {
+            console.error("Erro na requisição de cadastro:", erro);
+
+            alert(
+                "Não foi possível conectar ao servidor. Verifique se o backend está funcionando."
+            );
+        }
+    });
 }

@@ -1,5 +1,3 @@
-const API_URL = "http://localhost:3000";
-
 let lessons = [];
 let activeFilter = "all";
 let activeLesson = null;
@@ -65,7 +63,7 @@ function extractYouTubeId(url) {
 
 async function carregarAulas() {
     try {
-        const resposta = await fetch(`${API_URL}/lesson/listar`);
+        const resposta = await apiFetch("/lesson/listar");
 
         if (!resposta.ok) {
             throw new Error("Erro ao buscar aulas");
@@ -409,6 +407,10 @@ function closeAddModal() {
         .getElementById("newVideoUrl")
         .value = "";
 
+    document
+        .getElementById("newVideoDescription")
+        .value = "";
+
 
     document
         .getElementById("newVideoLang")
@@ -432,6 +434,12 @@ async function submitNewVideo() {
     const url =
         document
             .getElementById("newVideoUrl")
+            .value
+            .trim();
+
+    const description =
+        document
+            .getElementById("newVideoDescription")
             .value
             .trim();
 
@@ -482,9 +490,7 @@ async function submitNewVideo() {
         // DESABILITA O BOTÃO ENQUANTO ENVIA
 
         const button =
-            document.querySelector(
-                "#addModal button[type='submit']"
-            );
+            document.querySelector("#addModal .modal-submit");
 
 
         if (button) {
@@ -496,8 +502,8 @@ async function submitNewVideo() {
         // ENVIA PARA O BACKEND
 
         const resposta =
-            await fetch(
-                `${API_URL}/lesson/cadastrar`,
+            await apiFetch(
+                "/lesson/cadastrar",
                 {
                     method: "POST",
 
@@ -511,8 +517,7 @@ async function submitNewVideo() {
 
                         language: language,
 
-                        description:
-                            `Aula de ${language}`,
+                        description: description || `Aula de ${language}`,
 
                         youtubeUrl: url,
 
@@ -524,8 +529,16 @@ async function submitNewVideo() {
             );
 
 
-        const data =
-            await resposta.json();
+        const responseText = await resposta.text();
+        let data = {};
+
+        if (responseText) {
+            try {
+                data = JSON.parse(responseText);
+            } catch {
+                data = { message: responseText };
+            }
+        }
 
 
         console.log(
@@ -538,6 +551,7 @@ async function submitNewVideo() {
 
             throw new Error(
                 data.erro ||
+                data.message ||
                 "Erro ao cadastrar aula"
             );
         }
@@ -596,9 +610,7 @@ async function submitNewVideo() {
     } finally {
 
         const button =
-            document.querySelector(
-                "#addModal button[type='submit']"
-            );
+            document.querySelector("#addModal .modal-submit");
 
 
         if (button) {
@@ -711,20 +723,32 @@ async function excluirAula() {
 
         console.log("Excluindo aula:", lesson.id);
 
-        const resposta = await fetch(
-            `${API_URL}/lesson/excluir/${lesson.id}`,
+        const resposta = await apiFetch(
+            `/lesson/excluir/${lesson.id}`,
             {
                 method: "DELETE"
             }
         );
 
-        const data = await resposta.json();
+        const responseText = await resposta.text();
+        let data = {};
+
+        if (responseText) {
+            try {
+                data = JSON.parse(responseText);
+            } catch {
+                data = { message: responseText };
+            }
+        }
 
         console.log("Resposta da exclusão:", data);
 
         if (!resposta.ok) {
             throw new Error(
-                data.erro || "Erro ao excluir aula"
+                data.erro ||
+                data.message ||
+                data.detalhe ||
+                "Erro ao excluir aula"
             );
         }
 
