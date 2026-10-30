@@ -31,7 +31,7 @@ if (formLogin) {
             try {
 
                 const resposta = await fetch(
-                    "http://localhost:3000/user/login",
+                    "http://localhost:3000/auth/login",
                     {
                         method: "POST",
 
@@ -46,7 +46,7 @@ if (formLogin) {
                         })
                     }
                 );
-
+console.log(resposta)
                 const dados =
                     await resposta.json();
 

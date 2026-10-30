@@ -41,7 +41,7 @@ if (formCadastro) {
       try {
 
         const resposta = await fetch(
-          "http://localhost:3000/user/cadastrar",
+          "http://localhost:3000/auth/register",
           {
             method: "POST",
 

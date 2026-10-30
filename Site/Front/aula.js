@@ -523,6 +523,8 @@ async function submitNewVideo() {
                 }
             );
 
+            console.log(resposta)
+
 
         const data =
             await resposta.json();
