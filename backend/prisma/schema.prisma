@@ -57,6 +57,7 @@ model User {
 
   lessonProgresses   UserLessonProgress[]
   questionProgresses UserQuestionProgress[]
+  quizAnswers        QuizAnswer[]
 
   @@map("users")
 }
@@ -234,4 +235,18 @@ model UserQuestionProgress {
   @@index([userId])
   @@index([questionId])
   @@map("user_question_progress")
+}
+
+model QuizAnswer {
+  id             String   @id @default(cuid())
+  userId         String
+  questionNumber Int
+  questionText   String
+  answerText     String
+  answeredAt     DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, answeredAt])
+  @@map("quiz_answers")
 }

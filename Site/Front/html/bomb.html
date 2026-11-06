@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Bomb | CodeChamp</title>
+  <link rel="stylesheet" href="../css/stylepuzzle.css">
+  <link rel="stylesheet" href="../css/stylebomb.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon"><img src="../assets/logotrofeu.png" alt="logo"></div>
+      <div>
+        <div class="logo-text">CodeChamp</div>
+        <div class="logo-sub">Aprenda Programação com Desafios</div>
+      </div>
+    </div>
+    <nav class="header-icons" aria-label="Navegação">
+      <a class="icon-btn" href="aula.html" title="Aulas" aria-label="Aulas">👩‍🏫</a>
+      <a class="icon-btn" href="perfil.html" title="Perfil" aria-label="Perfil">👤</a>
+      <a class="icon-btn" href="home.html" title="Voltar ao início" aria-label="Voltar ao início">🔙</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro" id="telaSelecao">
+      <span class="etiqueta">DESAFIO CONTRA O TEMPO</span>
+      <div class="titulo-pagina">
+        <h1>Code <span>Bomb</span></h1>
+        <p>Responda aos desafios de programação antes que o tempo acabe e desarme a bomba!</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>20s</b><small>Por pergunta</small></div>
+        <div class="stat"><b>5</b><small>Desafios</small></div>
+        <div class="stat"><b>+ pontos</b><small>A cada acerto</small></div>
+      </div>
+      <div class="rodape-sel">
+        <button class="btn ouro" id="btnComecar">Começar jogo</button>
+      </div>
+    </section>
+
+    <section class="painel-jogo" id="telaJogo" hidden>
+      <div class="jogo">
+        <aside class="lateral">
+          <div class="linha-status">
+            <span id="progresso">Desafio 1 de 5</span>
+            <span class="pontos">Pontos: <b id="pontos">0</b></span>
+          </div>
+          <h2>Desarme a bomba</h2>
+          <div class="timer-wrap" id="timerWrap" aria-live="polite">
+            <div class="bomba" aria-hidden="true">💣</div>
+            <div class="timer-info"><span>Tempo para desarmar</span><strong id="tempo">20</strong></div>
+            <div class="trilho"><div id="barraTempo"></div></div>
+          </div>
+          <div class="instrucoes-jogo">
+            <h3>Como jogar</h3>
+            <p>Escolha a resposta correta antes que o cronômetro chegue a zero. Cada acerto aumenta sua pontuação.</p>
+          </div>
+        </aside>
+
+        <div class="principal">
+          <div class="pergunta-box">
+            <span class="categoria selo js" id="categoria">JavaScript</span>
+            <h2 id="pergunta"></h2>
+            <pre><code id="codigo"></code></pre>
+            <div class="respostas" id="respostas"></div>
+            <p class="feedback" id="feedback" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resultado" id="telaResumo" hidden>
+      <div class="titulo-pagina">
+        <div class="icone-resultado" id="iconeResultado">🎉</div>
+        <h1 id="tituloResultado">Bomba desarmada!</h1>
+        <p id="textoResultado"></p>
+      </div>
+      <div class="stats grande">
+        <div class="stat"><b id="pontosFinais">0</b><small>Pontuação final</small></div>
+      </div>
+      <div class="rodape-sel">
+        <button class="btn ouro" id="btnJogarNovamente">Jogar novamente</button>
+        <a class="btn sec" href="home.html">Voltar ao início</a>
+      </div>
+    </section>
+  </main>
+  <script src="../js/bomb.js"></script>
+  <script src="../js/i18n.js"></script>
+</body>
+</html>

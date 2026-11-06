@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: "8mb" }));
 app.use(cors());
 
 const userquestionprogressRoutes = require("./src/routes/userquestionprogress.routes");
@@ -31,6 +31,7 @@ const lessonRoutes = require("./src/routes/lesson.routes");
 const userpreferencesRoutes = require("./src/routes/userpreferences.routes");
 
 const userRoutes = require("./src/routes/user.routes");
+const quizRoutes = require("./src/routes/quiz.routes");
 
 app.use("/userquestionprogress", userquestionprogressRoutes);
 
@@ -55,6 +56,7 @@ app.use("/lesson", lessonRoutes);
 app.use("/userpreferences", userpreferencesRoutes);
 
 app.use("/user", userRoutes)
+app.use("/quiz", quizRoutes);
 
 const authRoutes = require("./src/routes/auth.routes");
 

@@ -692,10 +692,27 @@ function configurarFotoPerfil() {
 
 
             leitor.onload =
-                function (e) {
+                async function (e) {
 
                     const imagem =
                         e.target.result;
+
+                    try {
+                        const resposta = await apiFetch("/user/me/avatar", {
+                            method: "PUT",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ avatarUrl: imagem })
+                        });
+                        const dados = await resposta.json().catch(() => ({}));
+                        if (!resposta.ok) {
+                            throw new Error(dados.erro || "Falha ao salvar a foto no banco.");
+                        }
+                    } catch (erro) {
+                        console.error("Erro ao enviar a foto para a API:", erro);
+                        alert(erro.message || "Não foi possível salvar a foto no banco.");
+                        input.value = "";
+                        return;
+                    }
 
 
 
@@ -711,10 +728,7 @@ function configurarFotoPerfil() {
 
                     try {
 
-                        localStorage.setItem(
-                            "fotoPerfil",
-                            imagem
-                        );
+                        localStorage.removeItem("fotoPerfil");
 
                     } catch (erro) {
 
@@ -877,10 +891,8 @@ function atualizarBotaoFoto() {
     }
 
 
-    const fotoSalva =
-        localStorage.getItem(
-            "fotoPerfil"
-        );
+    const foto = document.getElementById("fotoPerfil");
+    const fotoSalva = foto && foto.style.display !== "none" && foto.src;
 
 
     if (fotoSalva) {
@@ -903,7 +915,7 @@ function atualizarBotaoFoto() {
 // 12. CARREGAR FOTO SALVA
 // =====================================================
 
-function carregarFotoPerfil() {
+async function carregarFotoPerfil() {
 
     const foto =
         document.getElementById(
@@ -917,10 +929,24 @@ function carregarFotoPerfil() {
         );
 
 
-    const fotoSalva =
-        localStorage.getItem(
-            "fotoPerfil"
-        );
+    let fotoDaApi = null;
+    let apiCarregada = false;
+    try {
+        const resposta = await apiFetch("/user/me");
+        if (!resposta.ok) {
+            throw new Error(`Falha ao carregar a foto (${resposta.status}).`);
+        }
+        const usuario = await resposta.json();
+        apiCarregada = true;
+        fotoDaApi = usuario.avatarUrl || null;
+        localStorage.removeItem("fotoPerfil");
+    } catch (erro) {
+        console.error("Não foi possível carregar a foto pela API:", erro);
+    }
+
+    const fotoSalva = apiCarregada
+        ? fotoDaApi
+        : localStorage.getItem("fotoPerfil");
 
 
     // =================================================
@@ -967,12 +993,10 @@ function carregarFotoPerfil() {
 // 13. REMOVER FOTO
 // =====================================================
 
-function removerFotoPerfil() {
+async function removerFotoPerfil() {
 
-    const fotoSalva =
-        localStorage.getItem(
-            "fotoPerfil"
-        );
+    const fotoAtual = document.getElementById("fotoPerfil");
+    const fotoSalva = fotoAtual && fotoAtual.style.display !== "none" && fotoAtual.src;
 
 
     // =================================================
@@ -1001,6 +1025,22 @@ function removerFotoPerfil() {
 
 
     if (!confirmar) {
+        return;
+    }
+
+    try {
+        const resposta = await apiFetch("/user/me/avatar", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ avatarUrl: null })
+        });
+        const dados = await resposta.json().catch(() => ({}));
+        if (!resposta.ok) {
+            throw new Error(dados.erro || "Falha ao remover a foto do banco.");
+        }
+    } catch (erro) {
+        console.error("Erro ao remover a foto pela API:", erro);
+        alert(erro.message || "Não foi possível remover a foto do banco.");
         return;
     }
 
