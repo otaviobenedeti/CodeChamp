@@ -30,9 +30,26 @@
         <p>Responda aos desafios de programação antes que o tempo acabe e desarme a bomba!</p>
       </div>
       <div class="stats">
-        <div class="stat"><b>20s</b><small>Por pergunta</small></div>
-        <div class="stat"><b>5</b><small>Desafios</small></div>
+        <div class="stat"><b id="tempoModo">45s</b><small>Por desafio</small></div>
+        <div class="stat"><b id="quantidadeModo">3</b><small id="descricaoQuantidade">Desafios por matéria</small></div>
         <div class="stat"><b>+ pontos</b><small>A cada acerto</small></div>
+      </div>
+      <fieldset class="modo-bomb">
+        <legend>Escolha o modo</legend>
+        <label><input type="radio" name="modoBomb" value="codigo" checked> Programação de código</label>
+        <label><input type="radio" name="modoBomb" value="quiz"> Múltipla escolha</label>
+      </fieldset>
+      <div class="bomb-config">
+        <label for="linguagem">Linguagem</label>
+        <select id="linguagem">
+          <option>Python</option><option>Java</option><option>JavaScript</option><option>C++</option><option>C#</option><option>TypeScript</option><option>SQL</option>
+        </select>
+        <div class="bomb-campo-materia" id="configMateria">
+          <label for="materia">Matéria do desafio</label>
+          <select id="materia">
+            <option value="logica">Lógica de programação</option><option value="estruturas">Estruturas de dados</option><option value="banco">Banco de dados</option>
+          </select>
+        </div>
       </div>
       <div class="rodape-sel">
         <button class="btn ouro" id="btnComecar">Começar jogo</button>
@@ -54,16 +71,21 @@
           </div>
           <div class="instrucoes-jogo">
             <h3>Como jogar</h3>
-            <p>Escolha a resposta correta antes que o cronômetro chegue a zero. Cada acerto aumenta sua pontuação.</p>
+            <p id="instrucaoModo">Escreva uma solução para o desafio da matéria escolhida e envie antes que o cronômetro chegue a zero.</p>
           </div>
         </aside>
 
         <div class="principal">
           <div class="pergunta-box">
-            <span class="categoria selo js" id="categoria">JavaScript</span>
+            <span class="categoria selo js" id="categoria">Lógica de programação</span>
             <h2 id="pergunta"></h2>
             <pre><code id="codigo"></code></pre>
-            <div class="respostas" id="respostas"></div>
+            <div id="areaCodigo">
+              <label class="editor-label" for="respostaCodigo">Sua solução em <span id="linguagemAtual">Python</span></label>
+              <textarea id="respostaCodigo" spellcheck="false" autocomplete="off" placeholder="Digite seu código aqui..."></textarea>
+              <button class="btn ouro" id="btnEnviarCodigo" type="button">Enviar solução</button>
+            </div>
+            <div class="respostas" id="respostas" hidden></div>
             <p class="feedback" id="feedback" aria-live="polite"></p>
           </div>
         </div>
@@ -86,6 +108,7 @@
     </section>
   </main>
   <script src="../js/bomb.js"></script>
+  <script src="../js/bomb-coding.js"></script>
   <script src="../js/i18n.js"></script>
 </body>
 </html>

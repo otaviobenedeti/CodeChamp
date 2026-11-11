@@ -22,6 +22,14 @@ main{width:100%;max-width:1500px;min-height:calc(100vh - 72px);padding:40px;marg
 .intro .titulo-pagina h1{margin:.2rem 0;font-size:2.2rem}
 .intro .titulo-pagina p,.resultado .titulo-pagina p{max-width:720px;margin:0 auto;line-height:1.5;opacity:.85}
 .intro .stats{margin:1rem 0}
+.modo-bomb{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.2rem;border:1px solid var(--borda);border-radius:12px;padding:.8rem 1rem;margin:1rem auto;background:var(--painel)}
+.modo-bomb legend{padding:0 .5rem;color:var(--ouro);font-weight:800}
+.modo-bomb label{display:flex;align-items:center;gap:.45rem;cursor:pointer}
+.modo-bomb input{accent-color:var(--ouro);width:18px;height:18px}
+.bomb-config{display:grid;grid-template-columns:auto minmax(150px,240px);gap:.6rem 1rem;align-items:center;justify-content:center;max-width:520px;margin:1.2rem auto;text-align:left;background:var(--painel);border:1px solid var(--borda);border-radius:14px;padding:1rem}
+.bomb-config label,.editor-label{font-weight:700;color:var(--text)}
+.bomb-config select{min-height:42px;padding:.5rem .7rem;border:1px solid var(--roxo2);border-radius:8px;background:#000;color:var(--text);font:inherit}
+.bomb-campo-materia{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(150px,240px);gap:.6rem 1rem;align-items:center}
 .painel-jogo{max-width:none;margin:0}
 .jogo{grid-template-columns:minmax(260px,380px) 1fr;gap:1rem}
 .lateral{background:var(--painel);border:1px solid var(--borda);border-radius:14px;padding:1rem;box-shadow:none}
@@ -47,6 +55,9 @@ main{width:100%;max-width:1500px;min-height:calc(100vh - 72px);padding:40px;marg
 .categoria{letter-spacing:1px}
 .pergunta-box h2{font-size:1.25rem;line-height:1.45;margin:1rem 0}
 .pergunta-box pre{overflow:auto;background:#000;border:1px solid var(--borda);border-radius:12px;padding:.8rem;color:var(--txt);font:14px/1.6 var(--mono);margin:.8rem 0 1rem}
+.editor-label{display:block;margin:.8rem 0 .4rem}
+#respostaCodigo{display:block;width:100%;min-height:190px;resize:vertical;background:#000;border:1px solid var(--roxo2);border-radius:10px;padding:.8rem;color:var(--txt);font:14px/1.6 var(--mono);tab-size:2}
+#btnEnviarCodigo{margin-top:.7rem}
 .respostas{display:grid;gap:.6rem}
 .resposta{display:block;width:100%;min-height:44px;text-align:left;background:transparent;color:var(--txt);border:1px solid var(--roxo2);border-radius:10px;padding:.6rem 1rem;font:inherit;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s}
 .resposta:hover:not(:disabled){background:#2a0850;border-color:var(--ouro)}
@@ -63,3 +74,4 @@ main{width:100%;max-width:1500px;min-height:calc(100vh - 72px);padding:40px;marg
 .resultado .stat b{color:var(--ouro)}
 @media(max-width:860px){.jogo{grid-template-columns:1fr}}
 @media(max-width:600px){main{padding:20px 14px}.lateral,.pergunta-box{padding:1rem}.timer-wrap{padding:12px}.intro .titulo-pagina h1,.resultado .titulo-pagina h1{font-size:1.8rem}}
+@media(max-width:480px){.bomb-config,.bomb-campo-materia{grid-template-columns:1fr}.bomb-config select{width:100%}}
