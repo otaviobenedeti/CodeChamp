@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeChamp</title>
-    <link rel="stylesheet" href="stylelogin.css">
+    <link rel="stylesheet" href="../css/stylelogin.css">
 </head>
 
 <body>
     <section class="auth-card">
         <header class="logo-container">
-            <img src="./assets/logotrofeu.png" alt="CodeChamp Logo" class="logo-img">
+            <img src="../assets/logotrofeu.png" alt="CodeChamp Logo" class="logo-img">
             <h1 class="brand-name">Code<span>Champ</span></h1>
             <p class="subtitle">Aprenda Programação com Desafios</p>
         </header>
@@ -23,6 +23,9 @@
             <input type="text" id="username" placeholder="Nome de Usuário" required>
 
             <input type="email" id="email" placeholder="email@dominio.com" required>
+
+            <label for="avatarUrl">URL da imagem de perfil (opcional)</label>
+            <input type="url" id="avatarUrl" placeholder="https://exemplo.com/foto.jpg">
 
             <div style="position: relative;">
 
@@ -77,8 +80,9 @@
         <a href="login.html" class="switch-link">Já possui conta? Voltar</a>
     </section>
     </main>
-    <script src="script.js"></script>
-    <script src="cadastro.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/cadastro.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 
 </html>

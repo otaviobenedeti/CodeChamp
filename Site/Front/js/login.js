@@ -64,6 +64,7 @@ console.log(resposta)
                     "usuario",
                     JSON.stringify(dados.user)
                 );
+                localStorage.setItem("token", dados.token);
 
                 alert(
                     "Login realizado com sucesso!"

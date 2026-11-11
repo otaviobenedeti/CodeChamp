@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Perfil - CodeChamp</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+    >
+
+    <link rel="stylesheet" href="../css/styleperfil.css">
+</head>
+
+<body data-auth-required>
+    <script src="../js/auth.js"></script>
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <img
+                    src="../assets/logotrofeu.png"
+                    alt="Logo CodeChamp"
+                >
+            </div>
+
+            <div>
+
+                <div class="logo-text">
+                    CodeChamp
+                </div>
+
+                <div class="logo-sub">
+                    Aprenda Programação com Desafios
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-icons">
+
+            <button class="icon-btn">
+                <a href="aula.html">👩‍🏫</a>
+            </button>
+
+            <button class="icon-btn">
+                <a href="perfil.html">👤</a>
+            </button>
+
+            <button class="icon-btn">
+                <a href="home.html">🔙</a>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTEÚDO ================= -->
+
+    <div class="page-wrap">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="profile-card">
+
+
+<!-- ================= FOTO DE PERFIL ================= -->
+
+<div class="avatar-container">
+
+    <div class="avatar-ring">
+
+        <img
+            id="fotoPerfil"
+            src=""
+            alt="Foto de perfil"
+        >
+
+        <span id="avatarPadrao">
+            😎
+        </span>
+
+    </div>
+
+
+    <div class="foto-botoes">
+
+        <!-- Escolher/trocar foto -->
+
+        <label
+            for="inputFotoPerfil"
+            class="botao-foto"
+            id="botaoFoto"
+        >
+            📷 Escolher foto
+        </label>
+
+
+        <!-- Input da galeria -->
+
+        <input
+            type="file"
+            id="inputFotoPerfil"
+            accept="image/*"
+            hidden
+        >
+
+
+        <!-- Remover foto -->
+
+        <button
+            type="button"
+            id="botaoRemoverFoto"
+            class="botao-remover-foto"
+        >
+            🗑️ Remover foto
+        </button>
+
+    </div>
+
+</div>
+
+
+
+                <!-- NOME DE USUÁRIO -->
+
+                <div
+                    class="username"
+                    id="username"
+                >
+                    Usuário
+                </div>
+
+
+                <div class="profile-description">
+                    Meu perfil pessoal
+                </div>
+
+
+                <!-- ESTATÍSTICAS -->
+
+                <div class="stat-list">
+
+                    <div class="stat-row">
+
+                        <span>
+                            Linguagens
+                        </span>
+
+                        <span id="quantidadeLinguagens">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Taxa de acerto
+                        </span>
+
+                        <span>
+                            73%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= BOAS-VINDAS ================= -->
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <span class="small-title">
+                        MEU PERFIL
+                    </span>
+
+                    <h1 id="nomeUsuario">
+                        Olá, Usuário! 👋
+                    </h1>
+
+                    <p>
+                        Aqui você pode acompanhar suas preferências
+                        e informações pessoais de programação.
+                    </p>
+
+                </div>
+
+
+                <!-- PAÍS -->
+
+                <div class="country-box">
+
+                    <span
+                        id="bandeiraPais"
+                        class="fi fi-br"
+                    ></span>
+
+
+                    <div>
+
+                        <span>
+                            PAÍS
+                        </span>
+
+                        <strong id="nomePais">
+                            Brasil
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= ESTATÍSTICAS ================= -->
+
+            <div class="stats-grid">
+
+
+                <!-- Linguagens -->
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon">
+                        💻
+                    </div>
+
+                    <div
+                        class="kpi-val"
+                        id="totalLinguagens"
+                    >
+                        0
+                    </div>
+
+                    <div class="kpi-lbl">
+                        Linguagens
+                    </div>
+
+                </div>
+
+
+                <!-- Taxa -->
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon">
+                        🎯
+                    </div>
+
+                    <div class="kpi-val">
+                        73%
+                    </div>
+
+                    <div class="kpi-lbl">
+                        Taxa de acerto
+                    </div>
+
+                </div>
+
+
+                <!-- Nacionalidade -->
+
+                <div class="kpi-card">
+
+                    <div
+                        class="kpi-icon"
+                        id="emojiPais"
+                    >
+                        🇧🇷
+                    </div>
+
+                    <div
+                        class="kpi-val"
+                        id="codigoPais"
+                    >
+                        BR
+                    </div>
+
+                    <div class="kpi-lbl">
+                        Nacionalidade
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= LINGUAGENS ================= -->
+
+            <div class="section-card">
+
+
+                <div class="card-title">
+                    Minhas linguagens favoritas
+                </div>
+
+
+                <p class="language-description">
+                    Escolha uma ou mais linguagens que você prefere
+                    estudar e utilizar.
+                </p>
+
+
+
+                <div class="language-options">
+
+
+                    <!-- JAVASCRIPT -->
+
+                    <label class="language-option">
+
+                        <input
+                            type="checkbox"
+                            name="linguagem"
+                            value="JavaScript"
+                        >
+
+                        <span
+                            class="language-icon javascript-icon"
+                        >
+                            🟨
+                        </span>
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- PYTHON -->
+
+                    <label class="language-option">
+
+                        <input
+                            type="checkbox"
+                            name="linguagem"
+                            value="Python"
+                        >
+
+                        <span
+                            class="language-icon python-icon"
+                        >
+                            🐍
+                        </span>
+
+                        <span>
+                            Python
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- JAVA -->
+
+                    <label class="language-option">
+
+                        <input
+                            type="checkbox"
+                            name="linguagem"
+                            value="Java"
+                        >
+
+                        <span
+                            class="language-icon java-icon"
+                        >
+                            ☕
+                        </span>
+
+                        <span>
+                            Java
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- C++ -->
+
+                    <label class="language-option">
+
+                        <input
+                            type="checkbox"
+                            name="linguagem"
+                            value="C++"
+                        >
+
+                        <span
+                            class="language-icon cpp-icon"
+                        >
+                            ⚙️
+                        </span>
+
+                        <span>
+                            C++
+                        </span>
+
+                    </label>
+
+                
+                    <label class="language-option">
+                        <input type="checkbox" name="linguagem" value="C#">
+                        <span class="language-icon" aria-hidden="true">🎯</span>
+                        <span>C#</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="checkbox" name="linguagem" value="TypeScript">
+                        <span class="language-icon" aria-hidden="true">🔷</span>
+                        <span>TypeScript</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="checkbox" name="linguagem" value="SQL">
+                        <span class="language-icon" aria-hidden="true">🗄️</span>
+                        <span>SQL</span>
+                    </label>
+                </div>
+
+
+
+                <!-- BOTÃO SALVAR -->
+
+                <button
+                    class="save-languages"
+                    id="botaoSalvarLinguagens"
+                    type="button"
+                >
+                    💾 Salvar linguagens
+                </button>
+
+
+
+                <!-- LINGUAGENS SALVAS -->
+
+                <div
+                    id="linguagensSelecionadas"
+                    class="selected-languages"
+                ></div>
+
+            </div>
+
+            <div class="section-card language-settings-card">
+                <div class="card-title">Idioma do site</div>
+                <p class="language-description">Escolha o idioma da interface. A preferência será usada nas outras páginas.</p>
+                <div class="language-settings-row">
+                    <label for="idiomaSite">Idioma</label>
+                    <select id="idiomaSite" class="language-select">
+                        <option value="pt">Português (BR)</option>
+                        <option value="pt-PT">Português (Portugal)</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="ja">日本語</option>
+                        <option value="ru">Русский</option>
+                        <option value="zh">中文（简体）</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="ar">العربية</option>
+                        <option value="bn">বাংলা</option>
+                        <option value="ur">اردو</option>
+                    </select>
+                </div>
+                <button class="save-languages" id="aplicarIdioma" type="button">Aplicar idioma</button>
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="../js/perfil.js"></script>
+    <script src="../js/i18n.js"></script>
+
+</body>
+
+</html>

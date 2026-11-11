@@ -5,7 +5,7 @@ const {
 } = require("../utils/password");
 const { generateToken } = require("../utils/jwt");
 
-async function register({ name, username, email, password }) {
+async function register({ name, username, email, password, avatarUrl }) {
 
     const existingUser = await prisma.user.findFirst({
         where: {
@@ -27,7 +27,8 @@ async function register({ name, username, email, password }) {
             name,
             username,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            avatarUrl: avatarUrl || null
         }
     });
 
@@ -36,7 +37,8 @@ async function register({ name, username, email, password }) {
         name: user.name,
         username: user.username,
         email: user.email,
-        role: user.role
+        role: user.role,
+        avatarUrl: user.avatarUrl
     };
 }
 
@@ -69,7 +71,8 @@ async function login({ email, password }) {
             name: user.name,
             username: user.username,
             email: user.email,
-            role: user.role
+            role: user.role,
+            avatarUrl: user.avatarUrl
         },
         token
     };

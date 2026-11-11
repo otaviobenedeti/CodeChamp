@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodeChamp</title>
+  <link rel="stylesheet" href="../css/stylehome.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body data-auth-required>
+  <script src="../js/auth.js"></script>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icon"><img src="../assets/logotrofeu.png" alt="logo"></div>
+      <div>
+        <div class="logo-text">CodeChamp</div>
+        <div class="logo-sub">Aprenda Programação com Desafios</div>
+      </div>
+    </div>
+    <div class="header-icons">
+      <button class="icon-btn"><a href="aula.html">👩‍🏫</a></button>
+      <button class="icon-btn"><a href="perfil.html">👤</a></button>
+      <button class="icon-btn"><a href="login.html" data-logout aria-label="Sair">🔙</a></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="modes-grid">
+      <div class="mode-card mode-quiz" onclick="">
+        <div class="mode-title">Code Quiz</div>
+        <div class="mode-icon"><img src="../assets/codequiz.jpg" width="300px" height="180px"></div>
+        <div class="mode-desc">Desafios Rápidos</div>
+        <div class="mode-sub">Teste seus conhecimentos e responda antes do tempo acabar.</div>
+        <a class="mode-play" href="selecaoquiz.html" aria-label="Jogar Code Quiz">PLAY</a>
+      </div>
+      <div class="mode-card mode-maratona" onclick="">
+        <div class="mode-title">Code Maratona</div>
+        <div class="mode-icon"><img src="../assets/codemaratona.jpg" width="300px" height="180px"></div>
+        <div class="mode-desc">Desafios de resistência</div>
+        <div class="mode-sub">Encare problemas completos e veja até onde sua lógica pode chegar.</div>
+        <a class="mode-play" href="../html/maratona.html" aria-label="Jogar Code Maratona">PLAY</a>
+      </div>
+      <div class="mode-card mode-puzzle" onclick="">
+        <div class="mode-title">Code Puzzle</div>
+        <div class="mode-icon"><img src="../assets/codepuzzle.png" width="300px" height="180px"></div>
+        <div class="mode-desc">Caça aos bugs</div>
+        <div class="mode-sub">Encontre o erro no código e descubra como corrigir o desafio.</div>
+        <a class="mode-play" href="../html/puzzle.html" aria-label="Jogar Code Puzzle">PLAY</a>
+      </div>
+      <div class="mode-card mode-bomb" onclick="">
+        <div class="mode-title">Code Bomb</div>
+        <div class="mode-icon"><img src="../assets/codebomb.jpg" width="300px" height="180px"></div>
+        <div class="mode-desc">Desafios contra o relógio</div>
+        <div class="mode-sub">Pense rápido, resolva o código e desarme a bomba a tempo.</div>
+        <a class="mode-play" href="desafio.html" aria-label="Jogar Code Bomb">PLAY</a>
+      </div>
+      <!-- <div class="mode-card" onclick="">
+        <div class="mode-title">🧠 Modo Maratona</div>
+        <div class="mode-icon">🧠</div>
+        <div class="mode-desc">Desafios Longos</div>
+        <div class="mode-sub">Resolva o grande problema!</div>
+      </div>
+      <div class="mode-card" onclick="">
+        <div class="mode-title"><a href="">🧩 Code Puzzle</a></div>
+        <div class="mode-icon">🧩</div>
+        <div class="mode-desc">Desafios de Busca de Erro</div>
+        <div class="mode-sub">Você consgue achar o erro?</div>
+      </div>
+      <div class="mode-card" onclick="">
+        <div class="mode-title"><a href="">💣 Code Bomb</a></div>
+        <div class="mode-icon">💣</div>
+        <div class="mode-desc">Desafios de Tempo</div>
+        <div class="mode-sub">Teste sua velocidade antes que o tempo acabe!</div>
+      </div> -->
+    </section>
+    <div id="cadastro" class="modal oculto">
+    </div>
+  </main>
+<script src="../js/script.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
+
+</html>

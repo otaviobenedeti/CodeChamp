@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Puzzle | CodeChamp</title>
+  <link rel="stylesheet" href="../css/stylepuzzle.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon"><img src="../assets/logotrofeu.png" alt="logo"></div>
+      <div>
+        <div class="logo-text">CodeChamp</div>
+        <div class="logo-sub">Aprenda Programação com Desafios</div>
+      </div>
+    </div>
+    <div class="header-icons">
+      <button class="icon-btn"><a href="aula.html" title="Aulas" aria-label="Aulas">👩‍🏫</a></button>
+      <button class="icon-btn"><a href="perfil.html" title="Perfil" aria-label="Perfil">👤</a></button>
+      <button class="icon-btn"><a href="home.html" title="Voltar ao início" aria-label="Voltar ao início">🔙</a></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- SELEÇÃO -->
+    <section id="telaSelecao">
+      <div class="titulo-pagina">
+        <h1>Code <span>Puzzle</span></h1>
+        <p>Encontre e corrija o erro no código. Escolha a linguagem, o nível e o desafio.</p>
+      </div>
+      <div class="stats" id="statsTopo"></div>
+      <div class="filtros">
+        <div class="fgrupo">
+          <span>Linguagem</span>
+          <div class="grupo" role="group" aria-label="Linguagem">
+            <button class="chip ativo" data-f="lang" data-v="todos">Todas</button>
+            <button class="chip" data-f="lang" data-v="html">HTML</button>
+            <button class="chip" data-f="lang" data-v="css">CSS</button>
+            <button class="chip" data-f="lang" data-v="js">JavaScript</button>
+          </div>
+        </div>
+        <div class="fgrupo">
+          <span>Dificuldade</span>
+          <div class="grupo" role="group" aria-label="Dificuldade">
+            <button class="chip ativo" data-f="nivel" data-v="todos">Todos</button>
+            <button class="chip" data-f="nivel" data-v="Fácil">🟢 Fácil</button>
+            <button class="chip" data-f="nivel" data-v="Médio">🟡 Médio</button>
+          </div>
+        </div>
+        <div class="fgrupo">
+          <span>Tempo</span>
+          <label class="cron"><input type="checkbox" id="chkTempo"><span>Cronômetro <small>(3 min por desafio)</small></span></label>
+        </div>
+      </div>
+      <div id="grade" class="grade"></div>
+      <div class="rodape-sel"><button class="btn sec" id="btnResumo">Ver resumo do desempenho</button></div>
+    </section>
+
+    <!-- JOGO -->
+    <section id="telaJogo" hidden>
+      <div class="jogo">
+        <aside class="lateral">
+          <button class="btn sec pequeno" id="btnVoltar">← Escolher outro desafio</button>
+          <h2 id="jNome"></h2>
+          <div class="selos"><span class="selo" id="jLang"></span><span class="selo" id="jNivel"></span><span class="selo ouro" id="jPts"></span></div>
+          <div class="tempo" id="jTempoBox" hidden>Tempo restante: <strong id="jTempo">3:00</strong></div>
+          <h3>Problema</h3><p id="jDesc"></p>
+          <h3>Resultado esperado</h3><p id="jEsp"></p>
+          <div id="jDica" class="dica" hidden></div>
+          <div class="prog"><div class="barra"><div id="jBarra"></div></div><small id="jProg"></small></div>
+        </aside>
+
+        <div class="principal">
+          <div class="toolbar" role="toolbar" aria-label="Ferramentas">
+            <button class="btn" id="btnTeste">▶ Executar teste</button>
+            <button class="btn ouro" id="btnSubmit">✔ Submeter</button>
+            <button class="btn sec" id="btnDica">💡 Dica</button>
+            <button class="btn sec" id="btnFormat">Formatar</button>
+            <button class="btn sec" id="btnReset">Resetar</button>
+          </div>
+          <div class="editor">
+            <div class="gutter" id="gutter" aria-hidden="true">1</div>
+            <textarea id="ed" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off" aria-label="Editor de código"></textarea>
+          </div>
+          <div class="output">
+            <div class="output-t">Output</div>
+            <div id="out" aria-live="polite"></div>
+          </div>
+          <div class="acoes-fim" id="fimBox" hidden>
+            <button class="btn ouro" id="btnProx">Próximo desafio →</button>
+            <button class="btn sec" id="btnOutro">Escolher outro</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section id="telaResumo" hidden>
+      <div class="titulo-pagina"><h1>Seu <span>desempenho</span></h1></div>
+      <div class="stats grande" id="statsResumo"></div>
+      <div class="rodape-sel">
+        <button class="btn" id="btnRetry">Tentar novamente (zerar)</button>
+        <button class="btn sec" id="btnOutro2">Escolher outro desafio</button>
+        <a class="btn ouro" href="home.html">Voltar ao início</a>
+      </div>
+    </section>
+  </main>
+  <script src="../js/puzzle.js"></script>
+  <script src="../js/i18n.js"></script>
+</body>
+</html>

@@ -11,10 +11,10 @@ const {
     atualizar, 
     excluir } = require("../controllers/lesson.controller");
 
-router.post("/cadastrar", authMiddleware, adminMiddleware, cadastrar);
+router.post("/cadastrar", authMiddleware, cadastrar);
 router.get("/listar", authMiddleware, listar);
 router.get("/buscar/:id", authMiddleware, buscar);
 router.put("/atualizar/:id", authMiddleware, adminMiddleware, atualizar);
-router.delete("/excluir/:id", authMiddleware, adminMiddleware, excluir);
+router.delete("/excluir/:id", authMiddleware, excluir);
 
 module.exports = router;
