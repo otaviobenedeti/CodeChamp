@@ -156,6 +156,18 @@ CREATE TABLE "user_question_progress" (
     CONSTRAINT "user_question_progress_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "quiz_answers" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "questionNumber" INTEGER NOT NULL,
+    "questionText" TEXT NOT NULL,
+    "answerText" TEXT NOT NULL,
+    "answeredAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "quiz_answers_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "users_username_key" ON "users"("username");
 
@@ -216,6 +228,9 @@ CREATE INDEX "user_question_progress_questionId_idx" ON "user_question_progress"
 -- CreateIndex
 CREATE UNIQUE INDEX "user_question_progress_userId_questionId_key" ON "user_question_progress"("userId", "questionId");
 
+-- CreateIndex
+CREATE INDEX "quiz_answers_userId_answeredAt_idx" ON "quiz_answers"("userId", "answeredAt");
+
 -- AddForeignKey
 ALTER TABLE "user_preferences" ADD CONSTRAINT "user_preferences_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -248,3 +263,6 @@ ALTER TABLE "user_question_progress" ADD CONSTRAINT "user_question_progress_user
 
 -- AddForeignKey
 ALTER TABLE "user_question_progress" ADD CONSTRAINT "user_question_progress_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "questions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "quiz_answers" ADD CONSTRAINT "quiz_answers_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
