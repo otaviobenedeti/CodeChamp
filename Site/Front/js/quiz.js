@@ -132,6 +132,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const saveStatus = document.getElementById("save-status");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -153,26 +154,27 @@ function showQuestion() {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
+    button.dataset.correct = String(answer.correct);
     answerButtons.appendChild(button);
 
     button.dataset.id = answer.id;
 
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener("click", (event) => selectAnswer(event, answer));
   });
 }
 
 function resetState() {
   nextButton.style.display = "none";
+  saveStatus.textContent = "";
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
 }
 
-function selectAnswer(e) {
-  answers = questions[currentQuestionIndex].answers;
-  const correctAnswer = answers.filter((answer) => answer.correct == true)[0];
-  const selectedBtn = e.target;
-  const isCorrect = selectedBtn.dataset.id == correctAnswer.id;
+async function selectAnswer(event, answer) {
+  const currentQuestion = questions[currentQuestionIndex];
+  const selectedBtn = event.currentTarget;
+  const isCorrect = answer.correct;
   if (isCorrect) {
     selectedBtn.classList.add("correct");
     score++;
@@ -185,7 +187,33 @@ function selectAnswer(e) {
     }
     button.disabled = true;
   });
-  nextButton.style.display = "block";
+
+  nextButton.style.display = "none";
+  saveStatus.textContent = "Salvando sua resposta...";
+
+  try {
+    const response = await apiFetch("/quiz/respostas", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        questionNumber: currentQuestionIndex + 1,
+        questionText: currentQuestion.question,
+        answerText: answer.text
+      })
+    });
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(data.erro || "Não foi possível salvar sua resposta.");
+    }
+
+    saveStatus.textContent = "Resposta salva.";
+  } catch (error) {
+    console.error("Erro ao salvar resposta do quiz:", error);
+    saveStatus.textContent = "Não foi possível salvar sua resposta. Tente novamente mais tarde.";
+  } finally {
+    nextButton.style.display = "block";
+  }
 }
 
 function showScore() {

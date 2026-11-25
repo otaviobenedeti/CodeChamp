@@ -197,6 +197,65 @@ const listar = async (req, res) => {
 
 
 // ==============================
+// PERFIL DO USUÁRIO AUTENTICADO
+// ==============================
+const buscarMeuPerfil = async (req, res) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: { id: req.user.id },
+            select: {
+                id: true,
+                name: true,
+                username: true,
+                email: true,
+                role: true,
+                avatarUrl: true
+            }
+        });
+
+        if (!user) {
+            return res.status(404).json({ erro: "Usuário não encontrado." });
+        }
+
+        return res.status(200).json(user);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ erro: "Erro ao buscar perfil." });
+    }
+};
+
+const atualizarMinhaFoto = async (req, res) => {
+    try {
+        const { avatarUrl } = req.body || {};
+        const imagemValida = typeof avatarUrl === "string" &&
+            /^data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(avatarUrl);
+
+        if (avatarUrl !== null && !imagemValida) {
+            return res.status(400).json({ erro: "Envie uma imagem válida ou null para remover." });
+        }
+
+        if (imagemValida) {
+            const conteudoBase64 = avatarUrl.substring(avatarUrl.indexOf(",") + 1);
+            const tamanhoBytes = Buffer.from(conteudoBase64, "base64").length;
+            if (tamanhoBytes > 5 * 1024 * 1024) {
+                return res.status(400).json({ erro: "A imagem deve ter no máximo 5 MB." });
+            }
+        }
+
+        const user = await prisma.user.update({
+            where: { id: req.user.id },
+            data: { avatarUrl },
+            select: { id: true, avatarUrl: true }
+        });
+
+        return res.status(200).json(user);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ erro: "Erro ao salvar a foto de perfil." });
+    }
+};
+
+// ==============================
 // BUSCAR
 // ==============================
 const buscar = async (req, res) => {
@@ -295,6 +354,8 @@ const excluir = async (req, res) => {
 module.exports = {
     cadastrar,
     login,
+    buscarMeuPerfil,
+    atualizarMinhaFoto,
     listar,
     buscar,
     atualizar,
